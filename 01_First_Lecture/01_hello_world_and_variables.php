@@ -109,12 +109,6 @@ END DESCRIPTION
    
    // Here is a single line comment
    
-    
-    
-    
-    /*
-     * so now we start with the first Exercice
-     */
    
 
    
