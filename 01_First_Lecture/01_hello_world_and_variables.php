@@ -443,4 +443,106 @@ $exerciceSheet->addExercice(new Exercice("
 
 
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+/*
+ * BEGIN DESCRIPTION
+now we try division
+To calculate 1 devided by 2, you can just write 1/2
+the sign for division is the / (slash)
+ * END DESCRIPTION
+ */
+
+
+$testFunction = function(){
+    /*BEGIN TODO
+    create a variable $variable1 and assign the value of  1 devided by 2 to it
+*/
+
+    //END TODO
+
+
+    if(!isset($variable1)){
+        $variable1 = null;
+    }
+
+
+
+    print("<br>Your \$variable1 is '$variable1'.<br>");
+
+    if($variable1 === 1/2){
+        return true;
+    }
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+
+       <h4>Division</h4>
+    if you made it right, the text below should be
+    Your \$variable1 is '".(1/2)."' 
+    ",$testFunction));
+
+
+
+
+/*
+ * BEGIN DESCRIPTION
+now we try the potence
+the potence is short notation of multiple multiplications:
+2 to the potence of 3 is 2 * 2 * 2
+Normally in a calculater, the notation is with the ^ sign (caret)
+in php, the notation is ** (two asterix)
+we talk about the base and the potence, the base is before the **, the potence after
+
+so 2**3 is 2*2*2 in php notation
+
+why potences to the base of 2 are very important in programming i'll tell you later
+To calculate the potence of 7 to the base of 5, you write in php: 5**7
+the sign for potence is the ** (double asterix)
+ * END DESCRIPTION
+ */
+
+
+$testFunction = function(){
+    /*BEGIN TODO
+    create a variable $variable1 and assign the value of  the potence of 5 to the base of 20
+*/
+
+    //END TODO
+
+
+    if(!isset($variable1)){
+        $variable1 = null;
+    }
+
+
+
+    print("<br>Your \$variable1 is '$variable1'.<br>");
+
+    if($variable1 === 20**5){
+        return true;
+    }
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+
+       <h4>Modulo</h4>
+    if you made it right, the text below should be
+    Your \$variable1 is '".(20**5)."' 
+    ",$testFunction));
+
+
+
+
+
+
+
+
 ?>
