@@ -387,4 +387,58 @@ $exerciceSheet->addExercice(new Exercice("
 
 
 
+/*
+ * BEGIN DESCRIPTION
+now we try modulo
+Modulo is an operation which programmers use often.
+if we devide 7 by 2, that goes good for 6 (its 3), but than there is still a rest of 1, we can't devide with whole numbers.
+and thats where modulo comes into action. Modulo is the rest of a whole number division.
+so:
+7 modulo 2 is 1
+6 modulo 2 is 0
+5 modulo 2 is again 1
+4 modulo 2 is again 0
+
+As you may have noticed, something modulo 2 is always either 0 or 1.
+Why programmers like this so much i'll tell you later
+
+To calculate 7 modulo 2, you can just write 1%2
+the sign for modulo is the % (percent)
+ * END DESCRIPTION
+ */
+
+
+$testFunction = function(){
+    /*BEGIN TODO
+    create a variable $variable1 and assign the value of  13246 modulo by 83 to it
+*/
+
+    //END TODO
+
+
+    if(!isset($variable1)){
+        $variable1 = null;
+    }
+
+
+
+    print("<br>Your \$variable1 is '$variable1'.<br>");
+
+    if($variable1 === 13246%83){
+        return true;
+    }
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+
+       <h4>Modulo</h4>
+    if you made it right, the text below should be
+    Your \$variable1 is '".(13246%83)."' 
+    ",$testFunction));
+
+
+
+
 ?>
