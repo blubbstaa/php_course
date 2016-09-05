@@ -391,8 +391,8 @@ $exerciceSheet->addExercice(new Exercice("
  * BEGIN DESCRIPTION
 now we try modulo
 Modulo is an operation which programmers use often.
-if we devide 7 by 2, that goes good for 6 (its 3), but than there is still a rest of 1, we can't devide with whole numbers.
-and thats where modulo comes into action. Modulo is the rest of a whole number division.
+if we devide 7 by 2, that goes good for 6 (its 3), but than there is still a remainder of 1, we can't devide with whole numbers.
+and thats where modulo comes into action. Modulo is the remainder of a whole number division.
 so:
 7 modulo 2 is 1
 6 modulo 2 is 0
@@ -401,6 +401,8 @@ so:
 
 As you may have noticed, something modulo 2 is always either 0 or 1.
 Why programmers like this so much i'll tell you later
+
+15 Modulo 30 is 15 (0 * 30 is 0, so the remainder is 15)
 
 To calculate 7 modulo 2, you can just write 1%2
 the sign for modulo is the % (percent)
