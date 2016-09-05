@@ -17,8 +17,6 @@ Any higher Programming Language knows a Concept called Strings.
 String is, what a non Programmer calls text, or like a Programmer would say: a list of characters
 In PHP, we assign Strings to variables like this:
 $variable1 = 'this is a string';
-But the Computer does not know Characers, he does not even know more than 0 and 1.
-A Computer is Binary.
 
  * END DESCRIPTION
  */
