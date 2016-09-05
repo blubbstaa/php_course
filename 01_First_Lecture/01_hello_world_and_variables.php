@@ -162,6 +162,7 @@ END DESCRIPTION
      * Only use letters or numbers or underscores in your variable names, and use senseful names.
      * You can assign a value to a variable like this:
      * $variable = 1;
+     * Remember that you have to end every statement in php with a ; (semikolon)
      * END DESCRIPTION
      */
 
@@ -197,6 +198,47 @@ END DESCRIPTION
     $exerciceSheet->addExercice(new Exercice("
     if you made it right, the text below should be
     Your \$variable1 is '1' and your \$variable2 is '2' .
+    ",$testFunction));
+
+
+
+
+
+/*
+ * BEGIN DESCRIPTION
+ in php, you can also calculate
+lets begin with the addition.
+To sum 1 and 2, you can just write 1+2
+ * END DESCRIPTION
+ */
+
+
+$testFunction = function(){
+    /*BEGIN TODO
+    create a variable $variable1 and assign the sum of 12345 and 54758 to it
+*/
+
+
+    //END TODO
+
+
+    if(!isset($variable1)){
+        $variable1 = null;
+    }
+
+
+    print("<br>Your \$variable1 is '$variable1'.<br>");
+
+    if($variable1 === 12345 + 54758){
+        return true;
+    }
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+    if you made it right, the text below should be
+    Your \$variable1 is '".(12345 + 54758)."' 
     ",$testFunction));
    
    
