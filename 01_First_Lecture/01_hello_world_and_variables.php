@@ -23,7 +23,7 @@ $exerciceSheet = new ExerciceSheet("01", "Hello World, Comments and Variables");
 */
 
 
-
+//-----------------------------------------------------------------------------------------------------------------------------------
 /* 
  * BEGIN DESCRIPTION
  * 01.01: How to make a PHP Script:
@@ -45,6 +45,8 @@ END DESCRIPTION
 
  $exerciceSheet->addExercice(
      new Exercice("
+    
+       <h4>Hello World</h4>
      If you made it right, the box should show the text: \"Hello World.\"<br>
      you can also execute the file directly by opening <a href='hello_world.php'>hello_world.php</a>
      ",function(){
@@ -86,6 +88,9 @@ END DESCRIPTION
      })
  );
 
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+
  /*
   * BEGIN DESCRIPTION
   * As you may have noticed, the text written right here does not get interpreted.
@@ -119,7 +124,9 @@ END DESCRIPTION
     * */
 
    $exerciceSheet->addExercice(new Exercice(
-       "If you made everything right, the box below should stay empty",
+       "
+       <h4>comments</h4>
+       If you made everything right, the box below should stay empty",
        function(){
            print("
             <iframe src='comments.php'></iframe>
@@ -154,6 +161,7 @@ END DESCRIPTION
 
    ));
 
+//-----------------------------------------------------------------------------------------------------------------------------------
     /*
      * BEGIN DESCRIPTION
      * Variables are like named baskets, where you can put data inside.
@@ -196,6 +204,8 @@ END DESCRIPTION
     };
 
     $exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Variable Assignment</h4>
     if you made it right, the text below should be
     Your \$variable1 is '1' and your \$variable2 is '2' .
     ",$testFunction));
@@ -203,6 +213,7 @@ END DESCRIPTION
 
 
 
+//-----------------------------------------------------------------------------------------------------------------------------------
 
 /*
  * BEGIN DESCRIPTION
@@ -237,9 +248,143 @@ $testFunction = function(){
 };
 
 $exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Addition</h4>
     if you made it right, the text below should be
     Your \$variable1 is '".(12345 + 54758)."' 
     ",$testFunction));
-   
-   
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+/*
+ * BEGIN DESCRIPTION
+now we try substraction
+To calculate 2 minus 1, you can just write 2-1
+ * END DESCRIPTION
+ */
+
+
+$testFunction = function(){
+    /*BEGIN TODO
+    create a variable $variable1 and assign the value of  54758 minus 12345 to it
+*/
+
+
+    //END TODO
+
+
+    if(!isset($variable1)){
+        $variable1 = null;
+    }
+
+
+    print("<br>Your \$variable1 is '$variable1'.<br>");
+
+    if($variable1 === 54758 - 12345){
+        return true;
+    }
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+
+       <h4>Substraction</h4>
+    if you made it right, the text below should be
+    Your \$variable1 is '".(54758 - 12345)."' 
+    ",$testFunction));
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+/*
+ * BEGIN DESCRIPTION
+now we try multiplication
+To calculate 2 times 1, you can just write 2*1
+the sign for multiplication is the * (asterix)
+ * END DESCRIPTION
+ */
+
+
+$testFunction = function(){
+    /*BEGIN TODO
+    create a variable $variable1 and assign the value of  5478 times 1235 to it
+*/
+
+
+    //END TODO
+
+
+    if(!isset($variable1)){
+        $variable1 = null;
+    }
+
+
+    print("<br>Your \$variable1 is '$variable1'.<br>");
+
+    if($variable1 === 5478 * 1235){
+        return true;
+    }
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+
+       <h4>Multiplication</h4>
+    if you made it right, the text below should be
+    Your \$variable1 is '".(5478 * 1235)."' 
+    ",$testFunction));
+
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+/*
+ * BEGIN DESCRIPTION
+now we try division
+To calculate 1 devided by 2, you can just write 1/2
+the sign for division is the / (slash)
+ * END DESCRIPTION
+ */
+
+
+$testFunction = function(){
+    /*BEGIN TODO
+    create a variable $variable1 and assign the value of  1 devided by 2 to it
+*/
+
+    //END TODO
+
+
+    if(!isset($variable1)){
+        $variable1 = null;
+    }
+
+
+
+    print("<br>Your \$variable1 is '$variable1'.<br>");
+
+    if($variable1 === 1/2){
+        return true;
+    }
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+
+       <h4>Division</h4>
+    if you made it right, the text below should be
+    Your \$variable1 is '".(1/2)."' 
+    ",$testFunction));
+
+
+
+
 ?>
