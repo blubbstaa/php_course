@@ -9,6 +9,8 @@ $exerciceSheet = new ExerciceSheet("01", "Hello World, Comments and Variables");
 * 
 * and end with
 * END DESCRIPTION
+ *
+ *
 */
 
 
@@ -17,6 +19,7 @@ $exerciceSheet = new ExerciceSheet("01", "Hello World, Comments and Variables");
 * BEGIN TODO 
 * and end with 
 * END TODO
+ * You only must change the lines between the TODO !!!!!!!!!!!!!!!
 */
 
 
@@ -29,12 +32,7 @@ $exerciceSheet = new ExerciceSheet("01", "Hello World, Comments and Variables");
  * 2. Everything Between <?php and ?> gets interpreted. 
 END DESCRIPTION
  */
-
- 
- 
- //Exercice 01:
- 
- 
+ //Exercice 1:
  /*
   * BEGIN TODO
   * Now, you will write your first php script.
@@ -87,12 +85,9 @@ END DESCRIPTION
 
      })
  );
-  
-  
-  
- 
- 
+
  /*
+  * BEGIN DESCRIPTION
   * As you may have noticed, the text written right here does not get interpreted.
   * This is called a comment, and you must use it to tell people reading your code
   * what your code is doing.
@@ -101,15 +96,76 @@ END DESCRIPTION
   */ 
   
   /* and */
-  
+
   /*
    * is a comment, and is ignored by the interpreter.
    * Second, you have the single line comment, you can start it with 2 / (Slash), like this: //
-   */ 
-   
+   */
+
    // Here is a single line comment
-   
-   
+
+   /*
+    * END DESCRIPTION
+    */
+
+   /*
+    * Exercice 2:
+    * BEGIN TODO
+    * create a file called comments.php in this folder
+    * in this file, write one multi line comment and one single line comment.
+    * Then watch the result in the browser
+    * END TODO
+    *
+    * */
+
+   $exerciceSheet->addExercice(new Exercice(
+       "If you made everything right, the box below should stay empty",
+       function(){
+           print("
+            <iframe src='comments.php'></iframe>
+            ");
+           $text = "";
+           try {
+               $text = file_get_contents(__DIR__."/comments.php");
+           }catch(Exception $e){
+               print("<br>You did not create a file called comments.php");
+                return false;
+           }
+
+           /*
+            * <\?php( |\n)
+            * (.|\n)*
+            * (
+            *   (
+            *       \/\/.*\n(.|\n)*
+            *       \/\*(.|\n)*\*\/
+            *   )
+            *   |
+            *   (
+            *       (.|\n)*\/\*(.|\n)*\*\/)(.|\n)*
+            *       \/\/.*\n(.|\n)*( |\n))\?>
+            */
+/*
+           if(preg_match("<\?php( |\s)(.|\s)*((\/\/.*\s(.|\s)*\/\*(.|\s)*\*\/(.|\s)*)|((.|\s)*\/\*(.|\s)*\*\/)(.|\s)*\/\/.*\s(.|\n)*( |\s))\?>",$text)) {
+               return true;
+           }
+  */
+            if(strpos($text, "<?php")=== false
+            || strpos($text, "?>")=== false
+            || strpos($text, "//")=== false
+            || strpos($text, "/*")=== false
+            || strpos($text, "*/")=== false
+            ){
+
+           }else{
+               return true;
+            }
+            print("<br>Your file does not contain comments or does not get interpreted or does not have a single and a multi line comment<br>");
+           return false;
+
+       }
+
+   ));
 
    
    
