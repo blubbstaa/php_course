@@ -113,7 +113,7 @@ END DESCRIPTION
     * BEGIN TODO
     * create a file called comments.php in this folder
     * in this file, write one multi line comment and one single line comment.
-    * Then watch the result in the browser
+    * Then watch the result in the browser by reloading this file
     * END TODO
     *
     * */
@@ -132,19 +132,6 @@ END DESCRIPTION
                 return false;
            }
 
-           /*
-            * <\?php( |\n)
-            * (.|\n)*
-            * (
-            *   (
-            *       \/\/.*\n(.|\n)*
-            *       \/\*(.|\n)*\*\/
-            *   )
-            *   |
-            *   (
-            *       (.|\n)*\/\*(.|\n)*\*\/)(.|\n)*
-            *       \/\/.*\n(.|\n)*( |\n))\?>
-            */
 /*
            if(preg_match("<\?php( |\s)(.|\s)*((\/\/.*\s(.|\s)*\/\*(.|\s)*\*\/(.|\s)*)|((.|\s)*\/\*(.|\s)*\*\/)(.|\s)*\/\/.*\s(.|\n)*( |\s))\?>",$text)) {
                return true;
@@ -167,6 +154,50 @@ END DESCRIPTION
 
    ));
 
+    /*
+     * BEGIN DESCRIPTION
+     * Variables are like named baskets, where you can put data inside.
+     * Variables in php always begin with the $ (Dollar) sign.
+     * You cannot use a number as first letter, but after that you can use lower and uppercase letters and underscores.
+     * Only use letters or numbers or underscores in your variable names, and use senseful names.
+     * You can assign a value to a variable like this:
+     * $variable = 1;
+     * END DESCRIPTION
+     */
+
+
+    $testFunction = function(){
+        /*BEGIN TODO
+        create a variable $variable1 and assign the value 1 to it.
+        then create another variable $variable2 and assign the value 2 to it
+    */
+
+
+        //END TODO
+
+
+        if(!isset($variable1)){
+            $variable1 = null;
+        }
+
+
+        if(!isset($variable2)){
+            $variable2 = null;
+        }
+
+        print("<br>Your \$variable1 is '$variable1' and your \$variable2 is '$variable2' .<br>");
+
+        if($variable1 === 1 && $variable2===2){
+            return true;
+        }
+
+        return false;
+    };
+
+    $exerciceSheet->addExercice(new Exercice("
+    if you made it right, the text below should be
+    Your \$variable1 is '1' and your \$variable2 is '2' .
+    ",$testFunction));
    
    
 ?>

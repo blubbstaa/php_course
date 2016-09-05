@@ -3,13 +3,14 @@ class Exercice{
 	private $exercicetext;
 
 	private $executefunction;
+
+	private $params;
 	
 	
-	
-	public function __construct($exercicetext,  callable $executefunction){
+	public function __construct($exercicetext,  callable $executefunction, array $params = array()){
 		$this->exercicetext = $exercicetext;
 		$this->executefunction = $executefunction;
-		
+		$this->params =$params;
 	}
 	
 	public function printExercice($num){
@@ -43,7 +44,7 @@ class Exercice{
 		}else{
 			print("<div class='failed'>FAILED</div>");
 		}
-
+		print("</div>");
 		
 	}
 

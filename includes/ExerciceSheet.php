@@ -19,6 +19,11 @@ class ExerciceSheet{
 		background-color: red;
 	}
 	
+	.exercice {
+    	border: 1px solid black;
+    	margin: 50px;
+	}
+	
 	
 </style>
 </head>
