@@ -236,69 +236,49 @@ $exerciceSheet = new ExerciceSheet("04", "Arrays");
     //-----------------------------------------------------------------------------------------------------------------------------------
     /*
      * BEGIN DESCRIPTION
-     * You can also make multi dimensional arrays
-     * either the first way:
-     * $array[0][0] = '00';
-     * $array[0][1] = '01';
-     * $array[0][2][0] = '020';
+     * To access the value of a key in an array, you put the key you want in the array operator on the right side of a statement
+     * The left side is where you put data in, the right side is where the data comes from.
+     * $array[0] = 1;
+     * $arrayvalue = $array[0];
      * 
-     * or by direct assignment
-     * $array = array(
-     * 		array('00'
-     * 			  ,'01'
-     * 			  , 2 => array(
-     * 							0 => '020'
-     * 							)
-     * 			),
-     * 		
-     * );
-     * 
-     * 
+     * now $arrayvalue is 1;
      */
 
 
     $testFunction = function(){
 		
-		$array[0]['firstkey'] = '00';
-		$array[0][1] = 7;
-		$array[0]['anotherkey'][0] = '020';
-		$array['startwithstring'][5]['anotherdimension'][5][0][2] = 3;
+		$array['key'] = '00';
 		
         /*BEGIN TODO
-			create an variable $arraydirectassigned to which you assign the same values and keys the $array has above.
-			But with direct assignment
+			create an variable $arrayvalue to which you assign the value of the key 'key' of the array $array
 		*/
 
 
         //END TODO
 
 
-        if(!isset($arraydirectassigned)){
-            $arraydirectassigned = null;
+        if(!isset($arrayvalue)){
+            $arrayvalue = null;
         }
 
-        
-		if(!is_array($arraydirectassigned)){
-			print("<br>Your Variable \$arraydirectassigned is not an array<br>");
-			return false;
-		}
-		
-		if($array==$arraydirectassigned){
-			return true;
-		}else{
-			print("<br>the \$array is '".json_encode($array)."' and your \$arraydirectassigned is '".json_encode($arraydirectassigned)."'<br>");
-			
-		}
-		
 
-        return false;
+		print("<br>Your \$arrayvalue is '$arrayvalue'.<br>");
+
+		if($arrayvalue === '00'){
+			return true;
+		}
+
+		return false;
     };
 
     $exerciceSheet->addExercice(new Exercice("
     
-       <h4>Multiple Dimensions</h4>
-    if you made it right, you should see no error messages
+       <h4>Array value access</h4>
+       if you made it right, the text below should be:<br>Your \$arrayvalue is '00' 
     ",$testFunction));
+    
+    
+    
     
     
 
