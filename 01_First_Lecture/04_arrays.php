@@ -274,7 +274,7 @@ $exerciceSheet = new ExerciceSheet("04", "Arrays");
 
 
         if(!isset($arraydirectassigned)){
-            $emptyArray = array();
+            $arraydirectassigned = null;
         }
 
         
