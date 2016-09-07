@@ -244,6 +244,152 @@ $exerciceSheet = new ExerciceSheet("05", "Booleans and conditions");
     
     
     
+//-----------------------------------------------------------------------------------------------------------------------------------
+    /*
+     * BEGIN DESCRIPTION
+     * there are other types of comparison operators.
+     * search in the internet the other comparison operators.
+     * 
+     *
+     * END DESCRIPTION
+     */
+
+
+    $testFunction = function(){
+	$comparisonArray = array(45,32,67,87);
+	
+	$resultArray = array();
+		
+    /*BEGIN TODO
+     * 
+        1. create an if statement, where if the first element of $comparisonArray is greater then 20, push the element 1 to $resultArray, 
+			else, push the element 0 to $resultarray
+		2. create another if statement, where if the second element of $comparisonArray is greater or equal then 32, push the element 1 to $resultArray, 
+			else, push the element 0 to $resultarray
+		3. create annother if statement, where if the third element of $comparisonArray is lower then 32, push the element 1 to $resultArray, 
+			else, push the element 0 to $resultarray
+		4. create annother if statement, where if the fourth element of $comparisonArray is lower or equal then 87, push the element 1 to $resultArray, 
+			else, push the element 0 to $resultarray
+        
+    */
+
+
+        //END TODO
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+        $solution = array(1,1,0,1);
+        
+        print("<br>your \$resultArray is '".json_encode($resultArray)."'<br> should be '".json_encode($solution)."'<br>");
+		
+		if($resultArray == $solution){
+			return true;
+		}
+		
+
+        return false;
+    };
+
+    $exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Other Operators</h4>
+    
+    ",$testFunction));
+    
+    
+    
+//-----------------------------------------------------------------------------------------------------------------------------------
+    /*
+     * BEGIN DESCRIPTION
+     * You can combine conditions in php.
+     * Search in the Internet how you can do that.
+     * END DESCRIPTION
+     */
+
+
+    $testFunction = function(){
+	$comparisonArray = array(45,32,68,87);
+	
+	$resultArray = array();
+		
+    /*BEGIN TODO
+     * 
+        1. create an if statement, where if the first element of $comparisonArray can be devided by 9 and 5, push the element 1 to $resultArray, 
+			else, push the element 0 to $resultarray
+		2. create another if statement, where if the second element of $comparisonArray can be devided by 4 or 5, push the element 1 to $resultArray, 
+			else, push the element 0 to $resultarray
+		3. create annother if statement, where if the third element of $comparisonArray can be devided by either 4 or 2, push the element 1 to $resultArray, 
+			else, push the element 0 to $resultarray
+		4. create annother if statement, where if the fourth element of $comparisonArray is between 80 and 90, push the element 1 to $resultArray, 
+			else, push the element 0 to $resultarray
+        
+    */
+
+
+        //END TODO
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+        $solution = array(1,1,0,1);
+        
+        print("<br>your \$resultArray is '".json_encode($resultArray)."'<br> should be '".json_encode($solution)."'<br>");
+		
+		if($resultArray == $solution){
+			return true;
+		}
+		
+
+        return false;
+    };
+
+    $exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Other Operators</h4>
+    
+    ",$testFunction));
+    
+    
+    
+    
+    
     
         
 
