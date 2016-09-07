@@ -335,11 +335,11 @@ $exerciceSheet = new ExerciceSheet("05", "Booleans and conditions");
      * 
         1. create an if statement, where if the first element of $comparisonArray can be devided by 9 and 5, push the element 1 to $resultArray, 
 			else, push the element 0 to $resultarray
-		2. create another if statement, where if the second element of $comparisonArray can be devided by 4 or 5, push the element 1 to $resultArray, 
+		2. create another if statement, where if the second element of $comparisonArray can be devided by 9 and 5, push the element 1 to $resultArray, 
 			else, push the element 0 to $resultarray
-		3. create annother if statement, where if the third element of $comparisonArray can be devided by either 4 or 2, push the element 1 to $resultArray, 
+		3. create annother if statement, where if the third element of $comparisonArray can be devided by 9 and 5, push the element 1 to $resultArray, 
 			else, push the element 0 to $resultarray
-		4. create annother if statement, where if the fourth element of $comparisonArray is between 80 and 90, push the element 1 to $resultArray, 
+		4. create annother if statement, where if the fourth element of $comparisonArray can be devided by 9 and 5, push the element 1 to $resultArray, 
 			else, push the element 0 to $resultarray
         
     */
