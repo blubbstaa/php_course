@@ -235,6 +235,84 @@ $exerciceSheet = new ExerciceSheet("07", "Functions");
     ",$testFunction));
     
     
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    /*
+     * BEGIN DESCRIPTION
+     * now we exercice a little
+     * 
+     * END DESCRIPTION
+     */
+     
+     
+     
+
+	 $testFunction = function(){
+		 
+		 
+		 /*BEGIN TODO
+			implement a function str_reverse($text), which returns the string passed in reverse order
+		*/
+		
+		
+		
+
+		//END TODO
+		
+		if(!function_exists("str_reverse")){
+			function str_reverse($text){
+				
+			}
+		}
+		
+
+
+		
+		 $toReverseTexts[] = 'I like learning with Linux Friends';
+		 $toReverseTexts[] = 'Programming is best';
+        
+		print("
+				
+				<table>
+					<tr>
+						<th>Text</th>
+						<th>Your Result</th>
+						<th>Should be</th>
+					</tr>
+					<tr>
+						<td>".$toReverseTexts[0]."</td>
+						<td>".str_reverse($toReverseTexts[0])."</td>
+						<td>sdneirF xuniL htiw gninrael ekil I</td>		
+					</tr>
+					<tr>
+						<td>".$toReverseTexts[1]."</td>
+						<td>".str_reverse($toReverseTexts[1])."</td>
+						<td>tseb si gnimmargorP</td>		
+					</tr>
+				</table>
+		");
+		
+		
+		
+		if(
+			'sdneirF xuniL htiw gninrael ekil I' == str_reverse($toReverseTexts[0])
+			&& 'tseb si gnimmargorP' == str_reverse($toReverseTexts[1])
+		){
+			return true;
+		}else{
+			print("<br>something went wrong<br>");
+			
+		}
+		
+
+        return false;
+        
+    };
+
+    $exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Str Reverse</h4>
+    ",$testFunction));
+    
     
     
     
