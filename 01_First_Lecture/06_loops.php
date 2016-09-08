@@ -98,6 +98,7 @@ $exerciceSheet = new ExerciceSheet("05", "Loops");
 		$stringWithB = 'b';
         /*BEGIN TODO
 			make a for loop to generate a string of 100 times the character 'b' and save the string into $stringWithB;
+			then print $stringWithB;
 		*/
 
 
@@ -184,6 +185,7 @@ $exerciceSheet = new ExerciceSheet("05", "Loops");
 			save the list in the variable $studentsCommaSeperated
 			it should look like this:
 			Michael,Max,Tom...
+			print the variable at the end
 		*/
 		
 
