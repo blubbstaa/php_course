@@ -1,7 +1,7 @@
 <?php
 require_once '../includes/include.php';
 
-$exerciceSheet = new ExerciceSheet("05", "Loops");
+$exerciceSheet = new ExerciceSheet("06", "Loops");
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------
