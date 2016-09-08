@@ -316,6 +316,87 @@ $exerciceSheet = new ExerciceSheet("07", "Functions");
     
     
     
+     //-----------------------------------------------------------------------------------------------------------------------------------
+    /*
+     * BEGIN DESCRIPTION
+     * now we exercice a little
+     * 
+     * END DESCRIPTION
+     */
+     
+     
+     
+
+	 $testFunction = function(){
+		 
+		 
+		 /*BEGIN TODO
+			implement a function arraySort($array), which returns the $array, but sorted
+		*/
+		
+		
+		
+
+		//END TODO
+		
+		if(!function_exists("arraySort")){
+			function arraySort($array){
+				return array();
+			}
+		}
+		
+
+
+		
+		 $toSort[] = array(4,3,2,1);
+		 $toSort[] = array(3,6,87,4,3,9,324,6543,43,45,67,344);
+        
+		print("
+				
+				<table>
+					<tr>
+						<th>Text</th>
+						<th>Your Result</th>
+						<th>Should be</th>
+					</tr>
+					<tr>
+						<td>".json_encode($toSort[0])."</td>
+						<td>".json_encode(arraySort($toSort[0]))."</td>
+						<td>[1,2,3,4]</td>		
+					</tr>
+					<tr>
+						<td>".json_encode($toSort[1])."</td>
+						<td>".json_encode(arraySort($toSort[1]))."</td>
+						<td>[3,3,4,6,9,43,45,67,87,324,344]</td>		
+					</tr>
+				</table>
+		");
+		
+		
+		
+		if(
+			'[1,2,3,4]' == json_encode(arraySort($toSort[0]))
+			&& '[3,3,4,6,9,43,45,67,87,324,344]' == json_encode(arraySort($toSort[1]))
+		){
+			return true;
+		}else{
+			print("<br>something went wrong<br>");
+			
+		}
+		
+
+        return false;
+        
+    };
+
+    $exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Str Reverse</h4>
+    ",$testFunction));
+    
+    
+    
+    
      
      
 
