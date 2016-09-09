@@ -1,4 +1,3 @@
-
 <?php
 require_once '../includes/include.php';
 
@@ -344,7 +343,6 @@ $exerciceSheet = new ExerciceSheet("04", "Arrays");
        <h4>Multiple Dimensions</h4>
     if you made it right, you should see no error messages
     ",$testFunction));
-    
     
     
     
