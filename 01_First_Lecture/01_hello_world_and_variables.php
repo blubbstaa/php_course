@@ -229,7 +229,6 @@ $testFunction = function(){
     create a variable $variable1 and assign the sum of 12345 and 54758 to it
 */
 
-	$variable1 = 12345+54758;
 
     //END TODO
 
