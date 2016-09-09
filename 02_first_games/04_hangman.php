@@ -11,7 +11,8 @@ define("MAX_FAILS", 6);
 
 
 
-if(isset($_POST['reset'])){
+
+if(isset($_POST['reset']) || !isset($_SESSION['solution'])){
 	//reset everything
 
 	unset($_SESSION['solution_replace']); //save the string with the replaced underscores here
@@ -35,8 +36,6 @@ if(isset($_POST['reset'])){
 	 
 	
 	 
-	$solution = "programming";
-	 
 	 
 	 //END TODO 
 	
@@ -48,6 +47,13 @@ if(isset($_POST['reset'])){
 	$solution = $_SESSION['solution'];
 }
 
+if(!isset($_SESSION['fail'])){
+	$_SESSION['fail'] = array();
+}
+if(!isset($_SESSION['success'])){
+	$_SESSION['success'] = array();
+}
+
 $_SESSION['solution_replace']=$solution;
 if(isset($_SESSION['underscores'])){
 	//if the underscores are already generated, read them from session
@@ -56,6 +62,7 @@ if(isset($_SESSION['underscores'])){
 	/*BEGIN TODO
 	 * save a string in $underscores with as many underscores as the solution has letters
 	 */
+	$underscores=str_repeat("_ ", strlen($solution));
 	//END TODO
 	
 }
@@ -72,6 +79,23 @@ if(isset($_POST['letter']) && strlen($_POST['letter'])>0){
  * 
  */	
 
+$pos=stripos($_SESSION['solution_replace'],$_POST['letter']);
+$changed=false;
+
+	while($pos!== false){
+		$changed=true;
+		$underscores[$pos*2]=$_POST['letter'];
+		$_SESSION['solution_replace'][$pos]="_";
+		
+		$pos=stripos($_SESSION['solution_replace'],$_POST['letter']);
+	}
+	
+	if($changed){
+		$_SESSION['success'][$_POST['letter']]=1;	
+	}else{
+		$_SESSION['fail'][$_POST['letter']]=1;	
+	}
+	
 	//END TODO
 	
 
@@ -89,6 +113,7 @@ echo "
 		 * CALCULATE the number of available fails here 
 		 */
 		
+		(MAX_FAILS - count($_SESSION['fail']))
 		//END TODO
 		
 		."</td>
@@ -101,7 +126,19 @@ echo "
 		 * BEGIN TODO
 		 * Pring a comma seperated list of the right guesses here
 		 * */
-		
+		$first=1;
+		if(isset($_SESSION['success'])){
+			foreach($_SESSION['success'] as $letter => $posarray){
+				if($first==1){
+					echo $letter;
+					$first=0;
+					
+				}else{
+					echo ",".$letter;
+				
+				}
+			}
+		}
 		//END TODO
 		
 		echo "</td>
@@ -114,7 +151,18 @@ echo "
 		 * BEGIN TODO
 		 * Print a comma seperated list of the wrong guesses here
 		 * */
+		$first=1;
 		
+		if(isset($_SESSION['fail'])){
+			foreach($_SESSION['fail'] as $letter => $value){
+				if($first==1){
+				echo $letter;
+				$first=0;
+				}else{
+				echo ",".$letter;
+				}
+			}
+		}
 		
 		//END TODO
 		echo "</td>
@@ -136,7 +184,16 @@ echo "
 		 * 
 		 * decide here wether the user is game over, won or can guess again
 		 * */
+		if(count($_SESSION['fail'])>=MAX_FAILS){
+			echo "Game over";
+		}elseif($solution == str_replace(" ", "",$underscores)){
+			echo "Congratulation, you won";
 		
+		}else{
+		
+			echo "<input type='submit' value='Guess'>";
+		
+		}
 		//END TODO
 		echo "</td><td><input type='submit' value='Reset' name='reset'></td>
 	</tr>
