@@ -278,6 +278,74 @@ $exerciceSheet = new ExerciceSheet("04", "Arrays");
     ",$testFunction));
     
     
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    /*
+     * BEGIN DESCRIPTION
+     * You can also make multi dimensional arrays
+     * either the first way:
+     * $array[0][0] = '00';
+     * $array[0][1] = '01';
+     * $array[0][2][0] = '020';
+     * 
+     * or by direct assignment
+     * $array = array(
+     * 		array('00'
+     * 			  ,'01'
+     * 			  , 2 => array(
+     * 							0 => '020'
+     * 							)
+     * 			),
+     * 		
+     * );
+     * 
+     * 
+     */
+
+
+    $testFunction = function(){
+		
+		$array[0]['firstkey'] = '00';
+		$array[0][1] = 7;
+		$array[0]['anotherkey'][0] = '020';
+		$array['startwithstring'][5]['anotherdimension'][5][0][2] = 3;
+		
+        /*BEGIN TODO
+			create an variable $arraydirectassigned to which you assign the same values and keys the $array has above.
+			But with direct assignment
+		*/
+
+
+        //END TODO
+
+
+        if(!isset($arraydirectassigned)){
+            $arraydirectassigned = null;
+        }
+
+        
+		if(!is_array($arraydirectassigned)){
+			print("<br>Your Variable \$arraydirectassigned is not an array<br>");
+			return false;
+		}
+		
+		if($array==$arraydirectassigned){
+			return true;
+		}else{
+			print("<br>the \$array is '".json_encode($array)."' and your \$arraydirectassigned is '".json_encode($arraydirectassigned)."'<br>");
+			
+		}
+		
+
+        return false;
+    };
+
+    $exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Multiple Dimensions</h4>
+    if you made it right, you should see no error messages
+    ",$testFunction));
+    
+    
     
     
     
