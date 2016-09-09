@@ -1,4 +1,3 @@
-
 <?php
 require_once '../includes/include.php';
 
@@ -278,9 +277,6 @@ $exerciceSheet = new ExerciceSheet("04", "Arrays");
     ",$testFunction));
     
     
-    /**
-     * a make a comment here, that the file is changed
-     **/ 
     
     
 
