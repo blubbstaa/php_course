@@ -1,7 +1,7 @@
 
 <?php
 
-/*
+/*BEGIN TODO
  * The game works now, but it's stupid that you can read the number you have to guess in the url.
  * Change the script, that the variables are not anymore in the url
  */
@@ -53,3 +53,6 @@ if (isset($_GET['number'])) {
     elseif ($User_Number == $Actual_Number) { print("Bingo, Correct Guess!<br>"); Start_Again(); }
 
 }elseif (!isset($_POST['higherlower'])) { Start_Again(); }
+
+
+//END TODO;

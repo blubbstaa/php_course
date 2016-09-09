@@ -2,8 +2,14 @@
 <?php
 
 /*
+ * BEGIN TODO
  * The game is better now, but if you look at the source code of the page, you can still see the number you have to guess.
  * is there a way that we can save something over multiple requests, but the user doesn't see it??
+ * 
+ * And the function rand isn't that good, it's always returning nearly the same numbers, google a solution
+ * 
+ * Is there a way to win in a constant amount of guesses, describe how and how many guesses do you need? 
+ * (Going through every number is not ment)
  */
 
 
@@ -53,3 +59,6 @@ if (isset($_GET['number'])) {
     elseif ($User_Number == $Actual_Number) { print("Bingo, Correct Guess!<br>"); Start_Again(); }
 
 }elseif (!isset($_POST['higherlower'])) { Start_Again(); }
+
+
+//END TODO;
