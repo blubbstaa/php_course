@@ -352,7 +352,37 @@ $exerciceSheet->addExercice(new Exercice("
 
 
 
+$testFunction = function(){
+    ob_start();
+    /*BEGIN TODO
+    So you know now how to make new variables (people), and how to let them hand over things.
+    But you want to show your world what is inside. You can do that by printing them.
+    To print a variable, we need a special thing called function. You can imagine them as companies.
+    You have to give them something, and they do something for you with it. And sometimes, they give you something back.
+    To use the service of a company, you need to write down its name, like this:
+    print('Hello');
+    You are giving the sheet 'Hello' to the company print, and they put it on the website you are calling.
+    So now give the sheet 'i want to see it' to the company print, to print it on the website
 
+*/
+
+    //END TODO
+
+    $output = ob_get_contents();
+
+
+    if("i want to see it" ===$output){
+        return true;
+    }
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Printing</h4>
+    if you made it right, you should see the output: i want to see it<br>
+    ",$testFunction));
 
 
 
