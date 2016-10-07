@@ -123,8 +123,8 @@ $testFunction = function(){
         $hans = null;
     }
 
-
-    print("<br>At the end \$alf has '$jesus' <br>");
+    print("<br><br><br><br>-------------------<br><br><br><br>");
+    print("<br>At the end \$jesus has '$jesus' <br>");
     print("<br>At the end \$alf has '$alf' <br>");
     print("<br>At the end \$jonas has '$jonas' <br>");
     print("<br>At the end \$judas has '$judas' <br>");
@@ -136,6 +136,7 @@ $testFunction = function(){
     if('bred' === $jesus
         && 'bred' === $alf
         && 'bred' === $jonas
+        && 'bred' === $judas
         && 'bred' === $ali
         && 'bred' === $joshua
         && 'bred' === $albin
@@ -145,7 +146,11 @@ $testFunction = function(){
 
     return false;
 };
-
+$exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Jesus</h4>
+    if you made it right, anyone should not be hungry any more at the end
+    ",$testFunction));
 
 $testFunction = function(){
     $hans = 1;
@@ -191,11 +196,7 @@ $exerciceSheet->addExercice(new Exercice("
 
 
 
-$exerciceSheet->addExercice(new Exercice("
-    
-       <h4>Jesus</h4>
-    if you made it right, anyone should not be hungry any more at the end
-    ",$testFunction));
+
 
 
 
@@ -235,7 +236,6 @@ $exerciceSheet->addExercice(new Exercice("
     
        <h4>Switching 1</h4>
     if you made it right, both should have Hans' Pencil<br>
-    Your \$hans is '2'
     ",$testFunction));
 
 
@@ -268,7 +268,7 @@ $testFunction = function(){
 
 
 
-
+    print("<br><br><br><br>-------------------<br><br><br><br>");
     print("<br>At the end \$hans has  '$hans' <br>");
     print("<br>At the end \$fritz has  '$fritz' <br>");
 
@@ -282,7 +282,7 @@ $testFunction = function(){
 
 $exerciceSheet->addExercice(new Exercice("
     
-       <h4>Switching 1</h4>
+       <h4>Switching 2</h4>
     if you made it right, both should have Hans' Pencil<br>
     Your \$hans is '2'
     ",$testFunction));
@@ -290,6 +290,64 @@ $exerciceSheet->addExercice(new Exercice("
 
 
 
+$testFunction = function(){
+    $jesus = "jonas shoes";
+    $alf="jesus shoes";
+    $jonas="ali's shoes";
+    $judas="joshua's shoes";
+    $ali="albin's shoes";
+    $joshua="judas' shoes";
+    $albin="clara's shoes";
+    $clara="alf's shoes";
+
+    print("<br>At the beginning \$alf has '$alf' <br>");
+    print("<br>At the beginning \$jonas has '$jonas' <br>");
+    print("<br>At the beginning \$judas has '$judas' <br>");
+    print("<br>At the beginning \$ali has '$ali' <br>");
+    print("<br>At the beginning \$joshua has '$joshua' <br>");
+    print("<br>At the beginning \$albin has '$albin' <br>");
+    print("<br>At the beginning \$clara has '$clara' <br>");
+    /*BEGIN TODO
+    Your students are coming to class, but they have made a big mess with their shoes.
+    Bring it in order with switching
+*/
+
+
+    //END TODO
+
+
+    if(!isset($hans)){
+        $hans = null;
+    }
+    print("<br><br><br><br>-------------------<br><br><br><br>");
+
+    print("<br>At the end \$jesus has '$jesus' <br>");
+    print("<br>At the end \$alf has '$alf' <br>");
+    print("<br>At the end \$jonas has '$jonas' <br>");
+    print("<br>At the end \$judas has '$judas' <br>");
+    print("<br>At the end \$ali has '$ali' <br>");
+    print("<br>At the end \$joshua has '$joshua' <br>");
+    print("<br>At the end \$albin has '$albin' <br>");
+    print("<br>At the end \$clara has '$clara' <br>");
+
+    if('jesus shoes' === $jesus
+        && 'alf\'s shoes' === $alf
+        && 'jonas shoes' === $jonas
+        && 'judas\' shoes' === $judas
+        && 'ali\'s shoes' === $ali
+        && 'joshua\'s shoes' === $joshua
+        && 'albin\'s shoes' === $albin
+        && 'clara\'s shoes' === $clara){
+        return true;
+    }
+
+    return false;
+};
+$exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Jesus</h4>
+    if you made it right, anyone should not be hungry any more at the end
+    ",$testFunction));
 
 
 
