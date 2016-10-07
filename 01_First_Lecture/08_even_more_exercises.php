@@ -92,10 +92,68 @@ $exerciceSheet->addExercice(new Exercice("
 
 
 $testFunction = function(){
+    $jesus = "bred";
+    $alf="no bred";
+    $jonas="no bred";
+    $judas="no bred";
+    $ali="no bred";
+    $joshua="no bred";
+    $albin="no bred";
+    $clara="no bred";
+
+    print("<br>At the beginning \$alf has '$alf' <br>");
+    print("<br>At the beginning \$jonas has '$jonas' <br>");
+    print("<br>At the beginning \$judas has '$judas' <br>");
+    print("<br>At the beginning \$ali has '$ali' <br>");
+    print("<br>At the beginning \$joshua has '$joshua' <br>");
+    print("<br>At the beginning \$albin has '$albin' <br>");
+    print("<br>At the beginning \$clara has '$clara' <br>");
+    /*BEGIN TODO
+    This brings me to a funny idea.
+    You all know the story about jesus, sharing the bred and it gets more and more and in the end, everyone has bred?
+    In programming, that is no problem.
+    Let now $jesus give  $alf,$jonas,$judas,$ali,$joshua,$albin and $clara give what he has. ( he has bred).
+*/
+
+
+    //END TODO
+
+
+    if(!isset($hans)){
+        $hans = null;
+    }
+
+
+    print("<br>At the end \$alf has '$jesus' <br>");
+    print("<br>At the end \$alf has '$alf' <br>");
+    print("<br>At the end \$jonas has '$jonas' <br>");
+    print("<br>At the end \$judas has '$judas' <br>");
+    print("<br>At the end \$ali has '$ali' <br>");
+    print("<br>At the end \$joshua has '$joshua' <br>");
+    print("<br>At the end \$albin has '$albin' <br>");
+    print("<br>At the end \$clara has '$clara' <br>");
+
+    if('bred' === $jesus
+        && 'bred' === $alf
+        && 'bred' === $jonas
+        && 'bred' === $ali
+        && 'bred' === $joshua
+        && 'bred' === $albin
+        && 'bred' === $clara){
+        return true;
+    }
+
+    return false;
+};
+
+
+$testFunction = function(){
     $hans = 1;
     print("<br>At the beginning \$hans has is '$hans' <br>");
     /*BEGIN TODO
     But there is also a bad thing in your little world. Your people just can keep one sheet.
+    They are like students: You teach them one thing. They learn it. Then you teach them a second thing,
+    they learn it too, but have already forgotten the first thing.
     If you give them another sheet, the just let the old sheet fall down, and it is lost.
     $hans has now 1.
     If i give him now 2, like this:
@@ -124,11 +182,125 @@ $testFunction = function(){
 
 $exerciceSheet->addExercice(new Exercice("
     
-       <h4>Variables</h4>
+       <h4>Copying</h4>
     if you made it right, the text below should be
     <br>At the beginning \$hans has is '1' <br>
+    Your \$hans is now '2'
+    ",$testFunction));
+
+
+
+
+$exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Jesus</h4>
+    if you made it right, anyone should not be hungry any more at the end
+    ",$testFunction));
+
+
+
+
+
+$testFunction = function(){
+    $hans = "Fritz's Pencil";
+    $fritz = "Hans' Pencil";
+    print("<br>At the beginning \$hans has  '$hans' <br>");
+    print("<br>At the beginning \$fritz has  '$fritz' <br>");
+    /*BEGIN TODO
+    That the people let down their sheet always when they get a new sheet makes some tasks difficult.
+    Lets say $hans as Fritz's Pencil and $fritz has Hans' Pencil. In our world, we just would say:
+    switch the pencils.
+    If we do that here, something silly happens:
+    Give now $hans what $fritz has and $fritz was $hans has
+*/
+
+
+    //END TODO
+
+
+
+
+
+    print("<br>At the end \$hans has  '$hans' <br>");
+    print("<br>At the end \$fritz has  '$fritz' <br>");
+
+    if($fritz === $hans){
+        return true;
+    }
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Switching 1</h4>
+    if you made it right, both should have Hans' Pencil<br>
     Your \$hans is '2'
     ",$testFunction));
+
+
+
+
+$testFunction = function(){
+    $hans = "Fritz's Pencil";
+    $fritz = "Hans' Pencil";
+    print("<br>At the beginning \$hans has  '$hans' <br>");
+    print("<br>At the beginning \$fritz has  '$fritz' <br>");
+    /*BEGIN TODO
+    What, now both have Hans' Pencil??? Is this whichcraft???
+    No, it's pure logic.
+    As I said before, if you give now hans what fritz has, he lets his pencil fall down. And always when $fritz gives
+    something, he keeps what he has and only gives a copy.
+    So $fritz makes a copy of "Hans' pencil", gives it to hans, hans let Fritz's Pencil fall down and it is lost,
+    and takes "Hans' pencil". At the end, both have "Hans' pencil".
+
+    So how do we solve that problem??
+    As i said at the beginning, we are god. So we can just create a new person called $tmp.
+    An auxiliary variable.
+    Then, we give first $tmp what hans has, so that Fritz's Pencil is not lost, but at $tmp.
+    Then, we give $hans what $fritz has.
+    And at the end, $fritz takes the pencil which was at the start at $hans, but now at $tmp, and the switch is complete.
+*/
+
+
+    //END TODO
+
+
+
+
+
+    print("<br>At the end \$hans has  '$hans' <br>");
+    print("<br>At the end \$fritz has  '$fritz' <br>");
+
+    if("Hans' Pencil" === $hans
+    && "Fritz's Pencil" === $fritz){
+        return true;
+    }
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Switching 1</h4>
+    if you made it right, both should have Hans' Pencil<br>
+    Your \$hans is '2'
+    ",$testFunction));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
