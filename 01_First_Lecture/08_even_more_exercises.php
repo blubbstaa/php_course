@@ -482,6 +482,8 @@ $testFunction = function(){
     Then print him again like this:
     "third hans has $hans <br>"
 
+    As you might have noticed, the variable name is now not enough as description, so i added a number
+    to identify the different prints
 */
 
 
