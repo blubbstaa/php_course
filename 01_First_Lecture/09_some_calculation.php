@@ -539,6 +539,59 @@ $exerciceSheet->addExercice(new Exercice("
 
 
 
+$testFunction = function(){
+    /*BEGIN TODO
+   Now we have another problem.
+    $fritz has 1000 CFA, $hans has 0 CFA.
+    now $fritz wants to give $hans 300 CFA.
+
+    We would write it like this:
+    $fritz = 1000;
+
+    $hans = 0;
+
+    print("At the beginning, \$fritz has $fritz and \$hans has $hans<br>");
+    //$fritz gives $hans 300, so he looses 300;
+    $fritz = $fritz - 300;
+
+    //$hans gets 300, so he gets 300
+    $hans = $hans + 300;
+
+    print("At the end, \$fritz has $fritz and \$hans has $hans<br>");
+
+    now $clara has 13904 CFA, and gives $burnley 1293 CFA, who already has 4593 CFA.
+*/
+
+
+    //END TODO
+
+
+    if(!isset($clara)){
+        $clara = null;
+    }
+
+    if(!isset($burnley)){
+        $burnley = null;
+    }
+
+
+    print("At the end, \$clara has $clara and \$burnley has $burnley<br>");
+
+    if(13904-1293 === $clara
+        && 4593 + 1293 === $burnley
+    ){
+        return true;
+    }
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Giving money</h4>
+    if you made it right, the text below should be
+    At the end, \$clara has ".(13904-1293)."  and \$burnley has ".(4593 + 1293)."<br>
+    ",$testFunction));
 
 
 
