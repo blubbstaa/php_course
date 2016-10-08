@@ -527,8 +527,8 @@ $exerciceSheet->addExercice(new Exercice("
     
        <h4>Solving Problems How many don't fit in the bag?</h4>
     if you made it right, the text below should be
-    "."<br>At the end \$hans has '".(ceil((1967+2384-1239+3489-3459)/121))."' <br>"
-    ."<br>At the end \$matthias has '".(ceil((27288-3478-1239+3478-3489+1289)/43))."' <br>"
+    "."<br>At the end \$hans has '".(ceil((1967+2384-1239+3489-3459)%121))."' <br>"
+    ."<br>At the end \$matthias has '".(ceil((27288-3478-1239+3478-3489+1289)%43))."' <br>"
     ."<br>At the end \$caro has '".(  ((8679+2357+789)-(562+847+8653))  -(156*7) -(50*5)  )."' <br>"
 
     ,$testFunction
