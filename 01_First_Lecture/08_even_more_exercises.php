@@ -101,6 +101,7 @@ $testFunction = function(){
     $albin="no bred";
     $clara="no bred";
 
+    print("<br>At the beginning \$jesus has '$jesus' <br>");
     print("<br>At the beginning \$alf has '$alf' <br>");
     print("<br>At the beginning \$jonas has '$jonas' <br>");
     print("<br>At the beginning \$judas has '$judas' <br>");
@@ -300,6 +301,7 @@ $testFunction = function(){
     $albin="clara's shoes";
     $clara="alf's shoes";
 
+    print("<br>At the beginning \$jesus has '$jesus' <br>");
     print("<br>At the beginning \$alf has '$alf' <br>");
     print("<br>At the beginning \$jonas has '$jonas' <br>");
     print("<br>At the beginning \$judas has '$judas' <br>");
@@ -381,11 +383,86 @@ $testFunction = function(){
 $exerciceSheet->addExercice(new Exercice("
     
        <h4>Printing</h4>
+    if you made it right, you should see the output: '2'<br>
+    ",$testFunction));
+
+
+
+
+$testFunction = function(){
+    ob_start();
+    /*BEGIN TODO
+    Giving something to a person (variable) means, the variable is on the left side of a equal sign, like this:
+    $hans = 2;
+    Calling a person(variable) means it is not on the left side of a variable, like in all these lines $fritz:
+    $hans = $fritz;
+    print($fritz);
+    if($fritz){
+    }
+    If you call a variable, in makes a copy of its sheet and gives it whereever you need it.
+    You can imagine that instead of the variable, there is the sheet it holds.
+    So instead of directly printing a sheet, you can also print a variable.
+    Give now $hans 2. Then print $hans.
+
+*/
+
+    //END TODO
+
+    $output = ob_get_contents();
+    if(!isset($hans)){
+        $hans = null;
+    }
+
+    if("2" ===$output && $output == $hans){
+        return true;
+    }
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Printing Variables</h4>
     if you made it right, you should see the output: i want to see it<br>
     ",$testFunction));
 
 
 
+$testFunction = function(){
+    ob_start();
+    /*BEGIN TODO
+    But like this, we don't know what the 2 means. So its better to describe it.
+    We can use a variable inside a sheet, if we use the double quotes.
+    With single Quotes it does not work.
+    So now try it. We always describe the variable with its name, and after the print we make
+    a break tag to seperate them
+    Now, give $hans 2.
+    Then you print it like this (with double quotes):
+    "hans has $hans <br>"
+
+    and then like this(with single quotes):
+    'hans has $hans <br>'
+*/
+
+    //END TODO
+
+    $output = ob_get_contents();
+    if(!isset($hans)){
+        $hans = null;
+    }
+
+    if("hans has $hans <br>". 'hans has $hans <br>'===$output && '2' == $hans){
+        return true;
+    }
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Printing variables with description</h4>
+    if you made it right, you should see thewith description output: hans has 2 <br>'hans has \$hans <br>'<br>
+    ",$testFunction));
 
 
 
