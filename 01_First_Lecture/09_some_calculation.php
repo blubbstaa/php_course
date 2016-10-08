@@ -38,6 +38,8 @@ $testFunction = function(){
     $fritz = $fritz + 8;
     print("tomorrow, fritz has '$fritz' <br>");
 
+    This advise counts for EVERY exercise
+
 
 */
 
@@ -554,7 +556,7 @@ $testFunction = function(){
     //$fritz gives $hans 300, so he looses 300;
     $fritz = $fritz - 300;
 
-    //$hans gets 300, so he gets 300
+    //$hans gets 300, so we add 300
     $hans = $hans + 300;
 
     print("At the end, \$fritz has $fritz and \$hans has $hans<br>");
@@ -593,5 +595,71 @@ $exerciceSheet->addExercice(new Exercice("
     At the end, \$clara has ".(13904-1293)."  and \$burnley has ".(4593 + 1293)."<br>
     ",$testFunction));
 
+
+
+
+$testFunction = function(){
+    /*BEGIN TODO
+   Now, we do this in a larger scale:
+    $hans has 3459 CFA
+    $fritz has 458 CFA
+    $clara has 4578 CFA
+    $martin has 4893 CFA
+    $paul has 8731 CFA
+    $alana has 2348 CFA
+
+    $hans gives $clara 495 CFA
+    $alana gives $martin 1203 CFA
+    $paul gives $fritz 3489 CFA
+    $clara gives $alana 2394 CFA
+    $fritz gives $hans 293 CFA
+    $paul gives $fritz 139 CFA
+*/
+
+
+    //END TODO
+
+
+    if(!isset($hans)){
+        $hans = null;
+    }
+
+    if(!isset($alana)){
+        $alana = null;
+    }
+    if(!isset($clara)){
+        $clara = null;
+    }
+
+    if(!isset($martin)){
+        $martin = null;
+    }
+
+    if(!isset($paul)){
+        $paul = null;
+    }
+
+    if(!isset($alana)){
+        $alana = null;
+    }
+
+    if(3459-495+293 === $hans
+        && 2348-1203+2394 === $alana
+        &&  4578+495-2394 === $clara
+        && 4893+1203 == $martin
+        && 8731-3489-139=== $paul
+        && 2348-1203+2394 === $alana
+    ){
+        return true;
+    }
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Giving money in larger scale</h4>
+    if you made it right, you should pass the exercise<br>
+    ",$testFunction));
 
 
