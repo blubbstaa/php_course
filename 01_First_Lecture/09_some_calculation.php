@@ -466,6 +466,73 @@ $exerciceSheet->addExercice(new Exercice("
 
 
 
+$testFunction = function(){
+    /*BEGIN TODO
+
+    And the end of the week, they need to put the unsold fruits into bags.
+
+
+    Now some more people with problem, tell them how much they have at the end:
+    $hans has 1967 Carots, on Monday he gets 2384 Carots, on Tuesday he sells 1239,
+    on wednesday he gets again 3489 Carots, and on Thursday he sells 3459
+    One Bag Carots has space for 121 Carots. How many don't fit in the bags?
+
+    $matthias has 27288 oranges, on Monday he sells 3478 oranges, on Tuesday he sells 1239,
+    on wednesday he gets again 3478 oranges, and on Thursday he sells 3489
+    On friday he gets again 1289 oranges
+    One Bag oranges has space for 43 oranges, How many don't fit in the bags?
+
+
+    $caro has 8679 pineapples, on Monday she sells 562 pineapples, on Tuesday hey sells 847,
+    on wednesday she gets again 2357 pineapples, and on Thursday she sells 8653
+    On friday she gets again 789 pineapples
+    She has 156 Bags for 7 Pineapples a bag and 50 with space for 5 Pineapples.
+    How many pineapples do not fit in the bags?
+
+*/
+
+
+    //END TODO
+
+
+    if(!isset($hans)){
+        $hans = null;
+    }
+
+    if(!isset($matthias)){
+        $matthias = null;
+    }
+
+    if(!isset($caro)){
+        $caro = null;
+    }
+
+
+    print("<br>At the end \$hans has '$hans' <br>");
+    print("<br>At the end \$matthias has '$matthias' <br>");
+    print("<br>At the end \$caro has '$caro' <br>");
+
+    if(abs($hans - ((1967+2384-1239+3489-3459)%121))<10e-5
+        && abs($matthias  - ((27288-3478-1239+3478-3489+1289)%43)) < 10e-5
+        && abs($caro  -  (  ((8679+2357+789)-(562+847+8653))  -(156*7) -(50*5)  ) )<10e-5
+    ){
+        return true;
+    }
+
+    return false;
+};
+
+
+$exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Solving Problems How many don't fit in the bag?</h4>
+    if you made it right, the text below should be
+    "."<br>At the end \$hans has '".(ceil((1967+2384-1239+3489-3459)/121))."' <br>"
+    ."<br>At the end \$matthias has '".(ceil((27288-3478-1239+3478-3489+1289)/43))."' <br>"
+    ."<br>At the end \$caro has '".(  ((8679+2357+789)-(562+847+8653))  -(156*7) -(50*5)  )."' <br>"
+
+    ,$testFunction
+));
 
 
 
