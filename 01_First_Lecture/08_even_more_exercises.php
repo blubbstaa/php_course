@@ -461,11 +461,55 @@ $testFunction = function(){
 $exerciceSheet->addExercice(new Exercice("
     
        <h4>Printing variables with description</h4>
-    if you made it right, you should see thewith description output: hans has 2 <br>'hans has \$hans <br>'<br>
+    if you made it right, you should see the output:<br> hans has 2 <br>hans has \$hans <br><br>
     ",$testFunction));
 
 
 
+$testFunction = function(){
+    ob_start();
+    /*BEGIN TODO
+    Always while programming, you need to be aware of what is currently inside your variables
+    /what your people are holding for sheets.
+    You can either do that in your mind, or by printing them.
+    So give now hans a 1.
+    Then print the variable like this:
+    "first hans has $hans <br>"
+      Then, you give hans 2.
+    Then print him again like this:
+    "second hans has $hans <br>"
+      Then, you give hans 3.
+    Then print him again like this:
+    "third hans has $hans <br>"
+
+*/
+
+
+    //END TODO
+
+    $output = ob_get_contents();
+    if(!isset($hans)){
+        $hans = null;
+    }
+
+    if("first hans has $hans <br>"
+        . "second hans has $hans <br>"
+        ."third hans has $hans <br>"===$output && '3' == $hans){
+        return true;
+    }
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Being aware what's inside</h4>
+    if you made it right, you should see the output:<br> ".
+    "first hans has 1 <br>"
+    . "second hans has 2 <br>"
+    ."third hans has 3 <br>"
+    ."<br>
+    ",$testFunction));
 
 
 
