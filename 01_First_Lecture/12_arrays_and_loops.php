@@ -550,7 +550,7 @@ $testFunction = function(){
     if(abs(array_sum($students)/count($students)- $average) < 10e-5){
         return true;
     }
-    print("<br>Error: You have to calculate the average of the amounts the students owe and store it in \$average<br>");
+    print("<br>Error: You have to calculate the average of  the students size and store it in \$average<br>");
     return false;
 };
 
