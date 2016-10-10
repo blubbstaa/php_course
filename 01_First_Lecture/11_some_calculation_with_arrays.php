@@ -8,7 +8,7 @@
 
 require_once '../includes/include.php';
 
-$exerciceSheet = new ExerciceSheet("10", "Some Calculations with variables");
+$exerciceSheet = new ExerciceSheet("11", "Some Calculations with arrays");
 
 
 
@@ -17,41 +17,37 @@ $testFunction = function(){
     $plusTodayCoconuts=5643;
     $plusTomorrowCoconuts = 3480;
     /*BEGIN TODO
-    If you use a person ( variable), it is as if you would use the data inside.
-    So if i defined
-    $a = 1;
+    We go a step further in abstraction. All these Variables have one thing in common.
+    They are all transactions of fruits, that means, transactions.
+    In programming, it is always important to extract the characteristics of the objects you are dealing with.
+    Here, they are all numbers which describe transactions. People get fruits, or people sell fruits.
+    So we can put them together somehow.
+    And for that we can use arrays.
+    Things, that are similar, we can put together in one variable, so that we don't have thousends of variable names
+    we don't know whats inside.
+    You can imagine it as opening a new subworld, were you again can name your people(variables), this time
+    you don't have to begin with the $ sign, but with the name of the array and then the array operator ([]).
+    To put the string 'value' in an array at the key 'key', you write:
+    $variableName['key']='value';
+    Example:
+    i have:
+    $startMandarin and today i get $todayMandarin and tomorrow i sell $tomorrowMandarin.
+    Solution:
+    //first, arange my code:
+    $mandarinTransactions = array();
+    $mandarinTransactions['start']=$startMandarin; //use the key start
+    $mandarinTransactions['today'] = $todayMandarin;
+    $mandarinTransactions['tomorrow']=$tomorrowMandarin;
 
-    it is the same if i write
-    $b = 1 + 1;
+    //now start solving the task:
+    //start:
+    $myMandarinAmount = $mandarinTransactions['start'];
+    //today
+     $myMandarinAmount =  $myMandarinAmount + $mandarinTransactions['today'];
+     //tomorrow
+     $myMandarinAmount =  $myMandarinAmount - $mandarinTransactions['tomorrow'];
 
-    or
-    $b = $a + $a;
-
-    because as first step, the value of the variables are put in place of the variables,
-    which is 1.
-    So if the computer has:
-    $b = $a + $a;
-
-    then he converts it first to:
-    $b = 1 + 1;
-
-    then evaluates it:
-    1+1 is 2
-
-    so:
-    $b = 2;
-
-    and $b is now 2.
-
-    I go a step further: It doesn't matter what value is in $a.
-
-    If the task is: $b should have the value of $a + $a,
-    i just do : $b = $a + $a;
-    and i dont care what is in $a.
-
-    So we do now the same exercises as before, but all the numbers are now exchanged with variables
-
-
+    //now solve these tasks again, this time with aranging the code before and using the arrays instead of the variables.
 
     As always when you are chief, you have to solve all problems of everyone.
     For example is there $clara, she has $a Apples, and now gets additionally $b Apples.
