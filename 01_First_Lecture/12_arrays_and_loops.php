@@ -390,3 +390,123 @@ $exerciceSheet->addExercice(new Exercice("
        <h4>Sum</h4>
     if you made it right, you should not get error message. 
     ",$testFunction));
+
+
+
+
+
+$testFunction = function(){
+
+
+    /*BEGIN DESCRIPTION
+        Now, we can also use this for calculation.
+        This time, we want the average the students owe.
+        You know that the average is calculated as the sum of the values devided by how many values there are.
+        you can count the elements in an array with
+        $numOfElementsInArray = count($array);
+    */
+    print('Result of Code in Description<br>');
+    $students = array();
+    $students['Albin']=6548; //we prepare the array with the fees the students still owe
+    $students['Joshua']=5498;
+    $students['Clara']=1897;
+    $students['Aisha']=1593;
+    $students['Marck']=7897;
+    $students['Franz']=5495;
+
+
+    //as always when we print our variables after we did a task.
+//with an array, you have to use print_r instead of print.
+//to print an array, you always to like this:
+    print('Initialisation of Array<br>');
+    print_r($students);
+    print('<br>');
+    //We need now a variable where we store the sum.
+    $sum = 0;
+
+    foreach ($students as $studentname => $value){
+        print('--------------------------------------------------------------------------<br><br>');
+        print('Start of foreach loop, which is executed for each element in $students<br>');
+        print('$sum is at start of loop iteration: '.$sum.'<br>');
+        print('<br>');
+        print('Before the code is executed, the key is copied in the variable after the as<br>');
+        print('Which is in this case in this iteration: $studentname : \''.$studentname.'\' <br>');
+        print('and the value is copied in the variable after the =><br>');
+        print('Which is in this case in this iteration: $value : \''.$value.'\' <br>');
+
+
+        //now, we give the student with the current $studentname what we have to give:
+        print('<br><br>Code which is executed in this loop:<br>');
+        print('$sum = $sum + $value;<br>');
+        print('And because $value is currently \''.$value.'\', this is the same as<br>');
+        print('$sum = $sum + '.$value.';<br>');
+        print('And because $sum is currently \''.$sum.'\', this is the same as<br>');
+        print('$sum = '.$sum.' + '.$value.';<br>');
+
+        //now, we add the value to the sum, when we do that for every student, at the end we will have the total sum
+        $sum = $sum + $value;
+        print('<br><br>');
+        print('$sum is at end of loop iteration: '.$sum.'<br>');
+        print('<br>');
+
+        print('--------------------------------------------------------------------------<br><br>');
+    }
+
+    print('At the end, sum is: '.$sum.'<br>');
+    print('<br>');
+    //now we have to calculate the average.
+    //to get the number of elements in the array
+    $num = count($students);
+    //now we have to devide our sum by the number of elements in the array
+    $average = $sum/$num;
+    print('At the end, average is: '.$average.'<br>');
+
+    print('End Result of Code in Description<br>');
+    unset($students);
+    unset($sum);
+    unset($average);
+
+
+    //END DESCRIPTION
+    $students['Albin']=6548; //we prepare the array with the fees the students still owe
+    $students['Joshua']=5498;
+    $students['Clara']=1897;
+    $students['Aisha']=5498;
+    $students['Marck']=7897;
+    $students['Franz']=5495;
+
+    /*
+     BEGIN TODO:
+    The amounts the students have to pay is already initialised in $students.
+    Now calculate the average of them
+    Store the sum finally in the variable $average
+     */
+
+//END TODO
+    if(!isset($average)){
+        $average = 0;
+    }
+
+    if(!isset($students)){
+        $students = array(-1);
+    }
+
+
+    print("<br>Your \$sum is  now: $average<br>");
+
+    $studentsContent = null;
+
+
+
+    if(abs(array_sum($students)/count($students)- $average) < 10e-5){
+        return true;
+    }
+    print("<br>Error: You have to calculate the average of the amounts the students owe and store it in \$average<br>");
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Sum</h4>
+    if you made it right, you should not get error message. 
+    ",$testFunction));
