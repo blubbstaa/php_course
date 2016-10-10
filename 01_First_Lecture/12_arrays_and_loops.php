@@ -289,16 +289,18 @@ $testFunction = function(){
 
     /*BEGIN DESCRIPTION
         Now, we can also use this for calculation.
-        Lets say, not every
+        Lets say, not every student could pay all the school fees, they still owe you money.
+        You want to sum it up
     */
     print('Result of Code in Description<br>');
     $students = array();
-    $students['Albin']=""; //we just prepare, we don't know yet,
-    //what we have to do with them. So we put an empty string inside
-    $students['Joshua']="";
-    $students['Clara']="";
-    $students['Aisha']="";
-    $students['Marck']="";
+    $students['Albin']=6548; //we prepare the array with the fees the students still owe
+    $students['Joshua']=5498;
+    $students['Clara']=1897;
+    $students['Aisha']=1593;
+    $students['Marck']=7897;
+    $students['Franz']=5495;
+
 
     //as always when we print our variables after we did a task.
 //with an array, you have to use print_r instead of print.
@@ -306,15 +308,13 @@ $testFunction = function(){
     print('Initialisation of Array<br>');
     print_r($students);
     print('<br>');
-    //Now, we have to give everyone a pencil.
-    //so normally, we would to:
-    $toGive = 'pencil'; //if we have to give another thing later, we can use the same code, just change this variable
+    //We need now a variable where we store the sum.
+    $sum = 0;
 
     foreach ($students as $studentname => $value){
         print('--------------------------------------------------------------------------<br><br>');
         print('Start of foreach loop, which is executed for each element in $students<br>');
-        print('$students is at start of loop iteration<br>');
-        print_r($students);
+        print('$sum is at start of loop iteration: '.$sum.'<br>');
         print('<br>');
         print('Before the code is executed, the key is copied in the variable after the as<br>');
         print('Which is in this case in this iteration: $studentname : \''.$studentname.'\' <br>');
@@ -324,69 +324,69 @@ $testFunction = function(){
 
         //now, we give the student with the current $studentname what we have to give:
         print('<br><br>Code which is executed in this loop:<br>');
-        print('$students[$studentname]=$toGive;<br>');
-        print('And because $studentname is currently \''.$studentname.'\', this is the same as<br>');
-        print('$students[\''.$studentname.'\']=$toGive;<br>');
-        $students[$studentname]=$toGive;
+        print('$sum = $sum + $value;<br>');
+        print('And because $value is currently \''.$value.'\', this is the same as<br>');
+        print('$sum = $sum + '.$value.';<br>');
+        print('And because $sum is currently \''.$sum.'\', this is the same as<br>');
+        print('$sum = '.$sum.' + '.$value.';<br>');
+
+        //now, we add the value to the sum, when we do that for every student, at the end we will have the total sum
+        $sum = $sum + $value;
         print('<br><br>');
-        print('$students is at end of loop iteration<br>');
-        print_r($students);
+        print('$sum is at end of loop iteration: '.$sum.'<br>');
         print('<br>');
 
         print('--------------------------------------------------------------------------<br><br>');
     }
 
-    print('After giving everyone pencil<br>');
-    print_r($students);
+    print('At the end, sum is: '.$sum.'<br>');
     print('<br>');
 
     print('End Result of Code in Description<br>');
     unset($students);
-    unset($toGive);
+    unset($sum);
 
 
     //END DESCRIPTION
-
+    $students['Albin']=6548; //we prepare the array with the fees the students still owe
+    $students['Joshua']=5498;
+    $students['Clara']=1897;
+    $students['Aisha']=5498;
+    $students['Marck']=7897;
+    $students['Franz']=5495;
 
     /*
      BEGIN TODO:
-    Now, do the same, but this time give everyone 'textbook'
+    The amounts the students have to pay is already initialised in $students.
+    Now calculate the sum of them
+    Store the sum finally in the variable $sum
      */
 
 //END TODO
+    if(!isset($sum)){
+        $sum = 0;
+    }
+
     if(!isset($students)){
-        $students = array();
+        $students = array(-1);
     }
 
 
-    print("<br>Your \$students is  now:<br>");
-    print_r($students);
+    print("<br>Your \$sum is  now: $sum<br>");
 
-    if(count($students)==0){
-        return false;
-    }
     $studentsContent = null;
 
-    foreach($students as $key => $value){
-        if($studentsContent == null){
-            $studentsContent = $value;
-        }
-        if($studentsContent != $value){
-            print("<br>You have made an error, not all students have the same<br>");
-            return false;
-        }
-    }
 
 
-    if($studentsContent== 'textbook'){
+    if(array_sum($students)== $sum){
         return true;
     }
-    print("<br>You have made an error, all students should have 'textbook'<br>");
+    print("<br>Error: You have to calculate the sum of the amounts the students owe and store it in \$sum<br>");
     return false;
 };
 
 $exerciceSheet->addExercice(new Exercice("
     
-       <h4>Textbook with loop</h4>
+       <h4>Sum</h4>
     if you made it right, you should not get error message. 
     ",$testFunction));
