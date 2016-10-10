@@ -507,6 +507,6 @@ $testFunction = function(){
 
 $exerciceSheet->addExercice(new Exercice("
     
-       <h4>Sum</h4>
+       <h4>Average</h4>
     if you made it right, you should not get error message. 
     ",$testFunction));
