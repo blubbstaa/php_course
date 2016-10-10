@@ -479,7 +479,56 @@ $testFunction = function(){
      BEGIN TODO:
     The amounts the students have to pay is already initialised in $students.
     Now calculate the average of them
-    Store the sum finally in the variable $average
+    Store the average finally in the variable $average
+     */
+
+//END TODO
+    if(!isset($average)){
+        $average = 0;
+    }
+
+    if(!isset($students)){
+        $students = array(-1);
+    }
+
+
+    print("<br>Your \$sum is  now: $average<br>");
+
+    $studentsContent = null;
+
+
+
+    if(abs(array_sum($students)/count($students)- $average) < 10e-5){
+        return true;
+    }
+    print("<br>Error: You have to calculate the average of the amounts the students owe and store it in \$average<br>");
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+    
+       <h4>Average</h4>
+    if you made it right, you should not get error message. 
+    ",$testFunction));
+
+
+
+
+$testFunction = function(){
+
+
+    $students['Albin']=1.89; //we prepare the array with the fees the students still owe
+    $students['Joshua']=1.56;
+    $students['Clara']=1.78;
+    $students['Aisha']=1.59;
+    $students['Marck']=1.81;
+    $students['Franz']=1.78;
+
+    /*
+     BEGIN TODO:
+    The size of the students is already initialised in $students.
+    Now calculate the average of them
+    Store the average finally in the variable $average
      */
 
 //END TODO
