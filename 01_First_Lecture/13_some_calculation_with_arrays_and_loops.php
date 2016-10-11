@@ -23,7 +23,8 @@ $testFunction = function(){
     so we do the same exercise, but this time with foreach loop
     Example:
     i have:
-    $startMandarin and today i get $todayMandarin and tomorrow i sell $tomorrowMandarin.
+    //$startMandarin and today i get $todayMandarin and tomorrow i sell $tomorrowMandarin.
+    //store the amount in $myMandarinAmount
     Solution:
     //first, arange my code:
     $mandarinTransactions = array();
@@ -31,15 +32,37 @@ $testFunction = function(){
     $mandarinTransactions['today'] = $todayMandarin;
     $mandarinTransactions['tomorrow']=$tomorrowMandarin;
 
+    //as always, we print after initialisation
+    print('Initialisation of $mandarinTransactions<br>');
+    print_r($mandarinTransactions);
+
+
+     //now, we store transaction types
+    $mandarinTransactionsType = array();
+    $mandarinTransactionsType['start']='get'; //use the key start
+    $mandarinTransactionsType['today'] = 'get';
+    $mandarinTransactionsType['tomorrow']='sell';
+
+    //as always, we print after initialisation
+    print('Initialisation of $mandarinTransactionsType<br>');
+    print_r($mandarinTransactionsType);
+
     //now start solving the task:
     //start:
-    $myMandarinAmount = $mandarinTransactions['start'];
-    //today
-     $myMandarinAmount =  $myMandarinAmount + $mandarinTransactions['today'];
-     //tomorrow
-     $myMandarinAmount =  $myMandarinAmount - $mandarinTransactions['tomorrow'];
+    $myMandarinAmount = 0;
 
-    //now solve these tasks again, this time with aranging the code before and using the arrays instead of the variables.
+    foreach($mandarinTransactions as $day => $value){
+        if($mandarinTransactions[$day]=='get'){
+            $myMandarinAmount = $mayMandarinAmount + $value;
+        }else{
+            $myMandarinAmount = $mayMandarinAmount - $value;
+        }
+    }
+
+
+
+    //now solve these tasks again, this time with aranging the code before
+    //and using the arrays instead of the variables, and using foreach loop
 
     As always when you are chief, you have to solve all problems of everyone.
     For example is there $clara, she has $a Apples, and now gets additionally $b Apples.
