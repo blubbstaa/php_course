@@ -505,6 +505,9 @@ $testFunction = function(){
     return false;
 };
 
+
+
+
 $exerciceSheet->addExercice(new Exercice("
     
        <h4>Average</h4>
@@ -516,24 +519,25 @@ $exerciceSheet->addExercice(new Exercice("
 
 $testFunction = function(){
 
-
-    $students['Albin']=1.89; //we prepare the array with the fees the students still owe
-    $students['Joshua']=1.56;
-    $students['Clara']=1.78;
-    $students['Aisha']=1.59;
-    $students['Marck']=1.81;
-    $students['Franz']=1.78;
+    $budget = 100000;
+    $students['Albin']=5855; //we prepare the array with the fees the students still owe
+    $students['Joshua']=5468;
+    $students['Clara']=2314;
+    $students['Aisha']=549;
+    $students['Marck']=5669;
+    $students['Franz']=9854;
 
     /*
      BEGIN TODO:
-    The size of the students is already initialised in $students.
-    Now calculate the average of them
-    Store the average finally in the variable $average
+    You have a total Budget of $budget for sick students to pay for medical services.
+    in $students is saved, how much you payed for every student.
+    Save in $budget how much is left.
+
      */
 
 //END TODO
-    if(!isset($average)){
-        $average = 0;
+    if(!isset($budget)){
+        $budget = 0;
     }
 
     if(!isset($students)){
@@ -541,16 +545,16 @@ $testFunction = function(){
     }
 
 
-    print("<br>Your \$sum is  now: $average<br>");
+    print("<br>Your \$budget is  now: $budget<br>");
 
     $studentsContent = null;
 
 
 
-    if(abs(array_sum($students)/count($students)- $average) < 10e-5){
+    if(abs($budget-array_sum($students)- $budget) < 10e-5){
         return true;
     }
-    print("<br>Error: You have to calculate the average of  the students size and store it in \$average<br>");
+    print("<br>Error: You have to calculate the rest of the budget of  the students and store it in \$budget<br>");
     return false;
 };
 
@@ -559,3 +563,6 @@ $exerciceSheet->addExercice(new Exercice("
        <h4>Average</h4>
     if you made it right, you should not get error message. 
     ",$testFunction));
+
+
+
