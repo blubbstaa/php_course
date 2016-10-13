@@ -278,7 +278,7 @@ $exerciceSheet->addExercice(new Exercice("
     
        <h4>Solving Problems 2</h4>
     if you made it right, the text below should be
-    "."<br>At the end \$hans has '".(1067 + 2384  + 3489+900)."' <br>"
+    "."<br>At the end \$hans has '".(1239)."' <br>"
     ."<br>At the end \$matthias has '".(20288 +3478+1289+7000)."' <br>"
     ."<br>At the end \$caro has 'pineapples' <br>"
 
