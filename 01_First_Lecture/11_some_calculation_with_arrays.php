@@ -167,7 +167,7 @@ $testFunction = function(){
     print("<br>At the end \$caro has '$caro' <br>");
 
     if($hans - 900 === 1067 + 2384 -1239 + 3489
-    && $matthias -7000 === 20288 -3478-1239+3478-3489+1298
+    && $matthias -7000 === 20288 -3478-1239+3478-3489+1289
     && $caro -70 ===     8609 - 562 -847
     ){
         return true;
@@ -181,7 +181,7 @@ $exerciceSheet->addExercice(new Exercice("
        <h4>Solving Problems</h4>
     if you made it right, the text below should be
     "."<br>At the end \$hans has '".(1067 + 2384 -1239 + 3489+900)."' <br>"
-    ."<br>At the end \$matthias has '".(20288 -3478-1239+3478-3489+1298+7000)."' <br>"
+    ."<br>At the end \$matthias has '".(20288 -3478-1239+3478-3489+1289+7000)."' <br>"
     ."<br>At the end \$caro has '".(8609 - 562 -847+70)."' <br>"
 
     , $testFunction));
@@ -250,7 +250,7 @@ $testFunction = function(){
     print("<br>At the end \$caro has '$caro' <br>");
 
     if($hans - 200 === 1039
-        && $matthias -7000 === 20288 +3478+1298
+        && $matthias -7000 === 20288 +3478+1289
         && $caro ==='pineapples'
     ){
         return true;
@@ -264,7 +264,7 @@ $exerciceSheet->addExercice(new Exercice("
        <h4>Solving Problems 2</h4>
     if you made it right, the text below should be
     "."<br>At the end \$hans has '".(1067 + 2384  + 3489+900)."' <br>"
-    ."<br>At the end \$matthias has '".(20288 +3478+1298+7000)."' <br>"
+    ."<br>At the end \$matthias has '".(20288 +3478+1289+7000)."' <br>"
     ."<br>At the end \$caro has 'pineapples' <br>"
 
 ,$testFunction
@@ -339,7 +339,7 @@ $testFunction = function(){
     print("<br>At the end \$caro has '$caro' <br>");
 
     if(abs($hans - (1967*57))<10e-5
-        && abs($matthias  - ((27288 +3478+1298)*43)) < 10e-5
+        && abs($matthias  - ((27288 +3478+1289)*43)) < 10e-5
         && abs($caro  -  (8609 - 562 -847+70+2357-8653+789)*89)<10e-5
     ){
         return true;
@@ -354,7 +354,7 @@ $exerciceSheet->addExercice(new Exercice("
        <h4>Solving Problems Money</h4>
     if you made it right, the text below should be
     "."<br>At the end \$hans has '".(1967*57)."' <br>"
-    ."<br>At the end \$matthias has '".((27288 +3478+1298)*43)."' <br>"
+    ."<br>At the end \$matthias has '".((27288 +3478+1289)*43)."' <br>"
     ."<br>At the end \$caro has '".((8609 - 562 -847+70+2357-8653+789)*89)."' <br>"
 
     ,$testFunction
@@ -522,7 +522,7 @@ $testFunction = function(){
     print("<br>At the end \$caro has '$caro'% <br>");
 
     if(abs($hans - (1239/(1967 + 2384  + 3489) *100))<10e-5
-        && abs($matthias  - ((1-(3478+1239+3489) /(27288 +3478+1298))*100)) < 10e-5
+        && abs($matthias  - ((1-(3478+1239+3489) /(27288 +3478+1289))*100)) < 10e-5
         && abs($caro  -  (  562/ 8679 *100))<10e-5
     ){
         return true;
@@ -537,7 +537,7 @@ $exerciceSheet->addExercice(new Exercice("
        <h4>Solving Problems Percentage</h4>
     if you made it right, the text below should be
     "."<br>At the end \$hans has '".(1239/(1967 + 2384  + 3489) *100)."%' <br>"
-    ."<br>At the end \$matthias has '".((1-(3478+1239+3489) /(27288 +3478+1298))*100)."%' <br>"
+    ."<br>At the end \$matthias has '".((1-(3478+1239+3489) /(27288 +3478+1289))*100)."%' <br>"
     ."<br>At the end \$caro has '".(562/ 8679 *100)."%' <br>"
 
     ,$testFunction
