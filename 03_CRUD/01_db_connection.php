@@ -234,3 +234,133 @@ $exerciceSheet->addExercice(new Exercice("
        <h4>Database Connection and query</h4>
     if you made it right, you should see no error messages
     ",$testFunction));
+
+
+
+
+/*
+ BEGIN DESCRIPTION
+    Ok, we printed out now all the tables which are in this database server.
+    Now lets work with our database.
+     Create a database with phpmyadmin or the console,
+    and connect from now on with this database.
+    In SQL, we have 2 types of queries:
+    DDL (Data Definition Language) and DML (Data Manipulation Language)
+    With DDL, you define how your tables looks like. How the tables in a database look like
+    is called schema. With DDL, you can create, alter or drop tables.
+    When you create a table, you also have to define columns.
+    There are many types, you can look them up later, for now i will teach you 2:
+    text and int.
+    and there is also one important thing: every table needs a primary key, a column which identifies
+    the row. And for that we use an auto_increment which just enumerates the rows.
+    So to create our table, we can use the SQL Statement:
+    CREATE TABLE crud(
+        id int primary key auto_increment,
+        value text
+    );
+    So now for us we create a table crud
+END DESCRIPTION
+ */
+
+
+$testFunction = function(){
+
+    /*
+     BEGIN TODO
+     Create now the table crud
+*/
+    $connectionString = "mysql:host=localhost;dbname=test";
+    $dblk= new PDO($connectionString , "root", "root");
+
+    // END TODO
+
+
+    if(!isset($dblk)){
+        $dblk = null;
+    }
+
+
+    if(is_object($dblk)){
+        if($dblk instanceof PDO) {
+            $statement = $dblk->prepare("SELECT column_name, data_type,column_key, extra 
+                                                                          FROM information_schema.columns 
+                                                                          WHERE TABLE_NAME = 'crud'");
+            //then execute it
+
+            if ( ! $statement->execute())
+            {
+                ob_start();
+                print_r($statement->errorInfo());
+                $errorinfo = ob_get_clean();
+                throw new \Exception($errorinfo);
+            }
+
+            //fetch the data
+            $res=$statement->fetchAll(PDO::FETCH_ASSOC);
+            $errors = 0;
+            $solution = array(
+                array(
+                    "column_name" => 'id',
+                    "data_type" => 'int',
+                    "column_key" => 'PRI',
+                    "extra" => 'auto_increment',
+
+                ),
+                array(
+                    "column_name" => 'value',
+                    "data_type" => 'text',
+                    "column_key" => '',
+                    "extra" => '',
+
+                ),
+
+
+            );
+            if(count($res)!=2){
+                print("<br>Error there is no table called crud<br>");
+                $errors++;
+            }
+            if(($res[0]==$solution[0] && $res[1] == $solution[1])
+                || ($res[0]==$solution[1] && $res[1] == $solution[0])){
+
+            }else{
+                print("<br>Error, your current definition is<br>");
+                print_r_tabs($res);
+                var_dump($res);
+                print("<br>But should be <br>");
+                print_r_tabs($solution);
+                var_dump($solution);
+                $errors++;
+
+            }
+            $statement = $dblk->prepare("DROP TABLE IF EXISTS crud;");
+            //then execute it
+
+            if ( ! $statement->execute())
+            {
+                ob_start();
+                print_r($statement->errorInfo());
+                $errorinfo = ob_get_clean();
+                throw new \Exception($errorinfo);
+            }
+            if(count($errors)==0) {
+                return true;
+            }
+            return false;
+
+
+        }
+    }
+    print("<br>something went wrong<br>");
+
+
+
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+
+       <h4>DDL</h4>
+    if you made it right, you should see no error messages
+    ",$testFunction));
