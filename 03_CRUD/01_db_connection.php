@@ -326,10 +326,8 @@ $testFunction = function(){
             }else{
                 print("<br>Error, your current definition is<br>");
                 print_r_tabs($res);
-                var_dump($res);
                 print("<br>But should be <br>");
                 print_r_tabs($solution);
-                var_dump($solution);
                 $errors++;
 
             }
