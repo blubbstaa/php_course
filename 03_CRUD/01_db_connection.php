@@ -268,9 +268,9 @@ $testFunction = function(){
     /*
      BEGIN TODO
      Create now the table crud
-*/
-    $connectionString = "mysql:host=localhost;dbname=test";
-    $dblk= new PDO($connectionString , "root", "root");
+    */
+
+
 
     // END TODO
 
