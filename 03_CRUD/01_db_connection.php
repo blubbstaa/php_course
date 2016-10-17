@@ -6,7 +6,13 @@
  * Time: 09:20
  */
 
+
+require_once '../includes/include.php';
+
+$exerciceSheet = new ExerciceSheet("07", "Functions");
+
 /*
+ BEGIN DESCRIPTION
  As you know, after your PHP script is finished, all your variables get deleted.
 So you open a webpage which is handled by PHP.  This means you send a
 HTTP GET or POST Request, the Scripts runs through, prints an HTML output.
@@ -63,7 +69,168 @@ Fortunally, we have a solution for that, which manages the whole persistency pro
 We don't do it in php anymore, we use a persistency abstraction layer, and we use a
 Database Management System (DBMS) for that.
 There are several types and over 200 implementations of this, we devide them in to
-SQL
+SQL (Structured Query Language, a text based Programming language to perform queries on Databases
+, one type of DBMS is the ones that support this type of interaction with them)
+NoSQL(Either No SQL, don't support SQL, or Not only SQL, support other languages too)
+Because looking at others would take too long, we concentrate on SQL DBMS.
 
+There are much implementations of SQL DBMS, the most known are:
+Oracle (Very expensive but top, sometimes difficult to handle)
+MSSQL Or SQL Server (The further development of Microsoft on base of Sybase DBMS, pray that you
+have never to use this)
+Postgresql (Open Source and wet dream of every programmer, very very very good)
+MySQL/MariaDB (MariaDB, because MySQL was bought by Oracle,
+and we don't know how long mysql will be free, that's why from now on Open Source People use MariaDB
+In connection Strings, drives and everywhere it is called mysql. The only difference is when you
+set it up, instead of installing mysql-server, you install mariadb-server. From now on,
+i write about mysql, but it works with both)
 
+Because most of the Hosters support MySQL, we concentrate on MySQL.
+Be aware that there is this Standard SQL,  but NO DBMS implemented it really, the all implemented some
+parts differently. So your MySQL Script won't work on a Postgresql Database.
+
+So now we have talked a lot about Databases, let us connect our PHP  skript with our MySQL Database.
+You will see functions like mysqli_connect or mysql_connect.
+DONT USE THEM!!!!
+In PHP, we have also the PDO Class (PHP Databse Object), with which you can connect to any DBMS.
+you have to install the debian package php-mysql that you can use pdo to connect with mysql.
+To check that, you can execute on your machine php -m (php, the programming language php, -m list modules),
+if there is pdo_mysql, everything is ready.
+
+To create a connection to a database, we have to create a new PDO Object with the right parameters.
+To do that, we write:
+//first create connection string, the connection string looks like this:
+// mysql:host=host;dbname=dbname;
+//host can be either the localhost:
+mysql:host=localhost;
+//or if the server is somewhere else, an op or domain name path (a url)
+//dbname is the name of the database you use.
+//if you don't know, in mysql, there is always the database information_schema
+$connectionString = "mysql:host=localhost;dbname=information_schema";
+$dblk= new PDO($connectionString , "username", "password");
+END DESCRIPTION
  */
+
+	 $testFunction = function(){
+        /*
+         BEGIN TODO
+         Create a connection to a Database and save it in $dblk
+        */
+
+        //END TODO
+
+
+
+         if(!isset($dblk)){
+             $dblk = null;
+         }
+
+         print("<br>Your \$dblk is now:<br>");
+        var_dump($dblk);
+         print("<br>");
+         if(is_object($dblk)){
+             if($dblk instanceof PDO) {
+                 return true;
+             }
+         }
+         print("<br>something went wrong<br>");
+
+
+
+
+         return false;
+     };
+
+    $exerciceSheet->addExercice(new Exercice("
+
+       <h4>Database Connection</h4>
+    if you made it right, you should see no error messages
+    ",$testFunction));
+
+/*
+ BEGIN DESCRIPTION
+    Now we have a connection, but we don't see anything.
+    So that you see something, we perform a query against one of the mysql intern parts, the information_schema.
+    We can do that in the following way:
+    //first prepare the statement
+    $statement = $dblk->prepare("SELECT table_name, table_schema FROM INFORMATION_SCHEMA.tables ");
+    //then execute it
+
+    if ( ! $statement->execute())
+    {
+// if error happens
+        ob_start();
+        //easiest way to serialize human readable error infos of ob_start and ob_get_clean and print_r
+        print_r($statement->errorInfo());
+        $errorinfo = ob_get_clean();
+        //throw exception
+        throw new \Exception($errorinfo);
+    }
+    //fetch the data
+    $res=$statement->fetchAll(PDO::FETCH_ASSOC);
+    print_r($res);
+
+    //to see it better, use print_r_tabs
+    print_r_tabs($res);
+
+END DESCRIPTION
+ */
+
+
+$testFunction = function(){
+    ob_start();
+    /*
+     BEGIN TODO
+     Select table_name, schema_name and table_rows from INFORMATION_SCHEMA.tables and print it
+*/
+
+   // END TODO
+
+    $printed = ob_get_contents();
+
+    if(!isset($dblk)){
+        $dblk = null;
+    }
+
+
+    if(is_object($dblk)){
+        if($dblk instanceof PDO) {
+            $statement = $dblk->prepare("SELECT table_name, table_schema,table_rows FROM information_schema.tables ");
+            //then execute it
+
+            if ( ! $statement->execute())
+            {
+                ob_start();
+                print_r($statement->errorInfo());
+                $errorinfo = ob_get_clean();
+                throw new \Exception($errorinfo);
+            }
+
+            //fetch the data
+            $res=$statement->fetchAll(PDO::FETCH_ASSOC);
+            ob_start();
+            print_r($res);
+            $withPrintR = ob_get_clean();
+            //to see it better, use print_r_tabs
+            ob_start();
+            print_r_tabs($res);
+            $withPrintRTabs = ob_get_clean();
+
+            if(stripos($printed,$withPrintR) !== false && stripos($printed,$withPrintRTabs) !== false){
+                return true;
+            }
+        }
+    }
+    print("<br>something went wrong<br>");
+
+
+
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+
+       <h4>Database Connection and query</h4>
+    if you made it right, you should see no error messages
+    ",$testFunction));
