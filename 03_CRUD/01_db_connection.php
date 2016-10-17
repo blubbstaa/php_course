@@ -493,6 +493,7 @@ $testFunction = function(){
 
             }
             $statement = $dblk->prepare("DROP TABLE IF EXISTS crud;");
+
             //then execute it
 
             if ( ! $statement->execute())
@@ -523,3 +524,200 @@ $exerciceSheet->addExercice(new Exercice("
        <h4>INSERT Statement</h4>
     if you made it right, you should see no error messages
     ",$testFunction));
+
+
+
+
+
+/*
+ BEGIN DESCRIPTION
+You have learned now something very very bad.
+When you put data inside a query, you ALWAYS use prepared statements.
+Because else hackers will break into your application (Yes, already happened to me too) with so called SQL INJECTION.
+//So instead of writing:
+ $dblk->prepare("INSERT INTO crud (value)VALUES('value1');"); //THIS IS WRONG, DON'T DO THIS AGAIN
+//You write from now on:
+ $statement = $dblk->prepare("INSERT INTO crud (value)VALUES(?);"); //you replace now every occurence of data with a ? mark.
+//and then, you bind the data to the query while specifying the parameter as 'value1'
+ $statement->bindParam(1,'value1', PDO::PARAM_STR);
+//and then you execute it
+if ( ! $statement->execute())
+            {
+                ob_start();
+                print_r($statement->errorInfo());
+                $errorinfo = ob_get_clean();
+                throw new \Exception($errorinfo);
+            }
+
+the second advantage is, that you can reuse the same statement serveral times:
+//So instead of writing:
+ $dblk->prepare("INSERT INTO crud (value)VALUES('value1');"); //THIS IS WRONG, DON'T DO THIS AGAIN
+if ( ! $statement->execute())
+            {
+                ob_start();
+                print_r($statement->errorInfo());
+                $errorinfo = ob_get_clean();
+                throw new \Exception($errorinfo);
+            }
+//for the second row, you write
+ $dblk->prepare("INSERT INTO crud (value)VALUES('value2');"); //THIS IS WRONG, DON'T DO THIS AGAIN
+if ( ! $statement->execute())
+            {
+                ob_start();
+                print_r($statement->errorInfo());
+                $errorinfo = ob_get_clean();
+                throw new \Exception($errorinfo);
+            }
+
+
+You define the statement once and append for each execution different parameters:
+$statement = $dblk->prepare("INSERT INTO crud (value)VALUES(?);"); //you replace now every occurence of data with a ? mark.
+ $statement->bindParam(1,'value1', PDO::PARAM_STR);
+if ( ! $statement->execute())
+            {
+                ob_start();
+                print_r($statement->errorInfo());
+                $errorinfo = ob_get_clean();
+                throw new \Exception($errorinfo);
+            }
+$statement->bindParam(1,'value2', PDO::PARAM_STR);
+if ( ! $statement->execute())
+            {
+                ob_start();
+                print_r($statement->errorInfo());
+                $errorinfo = ob_get_clean();
+                throw new \Exception($errorinfo);
+            }
+
+END DESCRIPTION
+ */
+
+
+$testFunction = function(){
+    ob_start();
+    /*
+     BEGIN TODO
+     Create now the table crud and then insert 3 rows into it, but this time as prepared statement
+    then print the content of the table with print_r_tabs
+    */
+
+
+
+    // END TODO
+    $printed = ob_get_contents();
+
+    if(!isset($dblk)){
+        $dblk = null;
+    }
+
+
+    if(is_object($dblk)){
+        if($dblk instanceof PDO) {
+            $statement = $dblk->prepare("SELECT column_name, data_type,column_key, extra 
+                                                                          FROM information_schema.columns 
+                                                                          WHERE TABLE_NAME = 'crud'");
+            //then execute it
+
+            if ( ! $statement->execute())
+            {
+                ob_start();
+                print_r($statement->errorInfo());
+                $errorinfo = ob_get_clean();
+                throw new \Exception($errorinfo);
+            }
+
+            //fetch the data
+            $res=$statement->fetchAll(PDO::FETCH_ASSOC);
+            $errors = 0;
+            $solution = array(
+                array(
+                    "column_name" => 'id',
+                    "data_type" => 'int',
+                    "column_key" => 'PRI',
+                    "extra" => 'auto_increment',
+
+                ),
+                array(
+                    "column_name" => 'value',
+                    "data_type" => 'text',
+                    "column_key" => '',
+                    "extra" => '',
+
+                ),
+
+
+            );
+            if(count($res)!=2){
+                print("<br>Error there is no table called crud<br>");
+                $errors++;
+            }
+            if(($res[0]==$solution[0] && $res[1] == $solution[1])
+                || ($res[0]==$solution[1] && $res[1] == $solution[0])){
+                $statement = $dblk->prepare("SELECT id,value FROM crud");
+                //then execute it
+
+                if ( ! $statement->execute())
+                {
+                    ob_start();
+                    print_r($statement->errorInfo());
+                    $errorinfo = ob_get_clean();
+                    throw new \Exception($errorinfo);
+                }
+
+                //fetch the data
+                $res=$statement->fetchAll(PDO::FETCH_ASSOC);
+                ob_start();
+                print_r_tabs($res);
+                $expected = ob_get_clean();
+                if(count($res)<3){
+                    print("<br>Error, Please insert at least 3 rows<br>");
+                    $errors++;
+                }
+                if(stripos($printed,$expected)!== false){
+
+                }else{
+                    print("<br>Error, You have to print the content of the table with print_r_tabs<br>");
+                    $errors++;
+                }
+            }else{
+                print("<br>Error, your current definition is<br>");
+                print_r_tabs($res);
+                print("<br>But should be <br>");
+                print_r_tabs($solution);
+                $errors++;
+
+            }
+            $statement = $dblk->prepare("DROP TABLE IF EXISTS crud;");
+            //then execute it
+
+            if ( ! $statement->execute())
+            {
+                ob_start();
+                print_r($statement->errorInfo());
+                $errorinfo = ob_get_clean();
+                throw new \Exception($errorinfo);
+            }
+            if(count($errors)==0) {
+                return true;
+            }
+            return false;
+
+
+        }
+    }
+    print("<br>something went wrong<br>");
+
+
+
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+
+       <h4>INSERT Statement</h4>
+    if you made it right, you should see no error messages
+    ",$testFunction));
+
+
+
