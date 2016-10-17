@@ -258,6 +258,16 @@ $exerciceSheet->addExercice(new Exercice("
         id int primary key auto_increment,
         value text
     );
+CREATE TABLE : this is the command
+    crud : this is the table name of the table you are creating
+    (); : Between these two braces you define the columns of the table you create
+    id : the name of the first column
+    int: the data type of the column
+    primary key: this column is the primary key of this table, any table needs one, and its most easy to use an aut_increment integer
+    auto_increment : when a new row is created, it should get an integer 1 higher than the last one automatically generated, beginning with 1
+    , : seperates two columns, but you cannot put one and then not define another column
+    value : the name of the next column
+    text : the data type of the next column
     So now for us we create a table crud
 END DESCRIPTION
  */
@@ -268,6 +278,7 @@ $testFunction = function(){
     /*
      BEGIN TODO
      Create now the table crud
+     The table will be dropped after the END TODO if it was created
     */
 
 
@@ -360,5 +371,155 @@ $testFunction = function(){
 $exerciceSheet->addExercice(new Exercice("
 
        <h4>DDL</h4>
+    if you made it right, you should see no error messages
+    ",$testFunction));
+
+
+
+/*
+ BEGIN DESCRIPTION
+Now we have a schema, but we still need data inside.
+So we do this:
+To insert data, we use the INSERT Statement. It looks like this:
+INSERT INTO crud (id,value)VALUES(null,'value1');
+INSERT INTO : We want to insert data into a table
+crud : the table name of the table we want to insert data into
+() : in here, you define which and the order of the columns you want to insert to
+VALUES : after VALUES, you define the Values you want to insert
+null : because the id is automatically generated, we don't need to set it by ourselves
+'value1' : in the value column, we insert the string 'value1'
+
+Because we anyway don't want to pass data to the id column, we can also leave it:
+INSERT INTO crud (value)VALUES('value1');
+
+Yes, this is already part of DML.
+
+END DESCRIPTION
+ */
+
+
+$testFunction = function(){
+    ob_start();
+    /*
+     BEGIN TODO
+     Create now the table crud and then insert 3 rows into it
+    then print the content of the table with print_r_tabs
+    */
+
+
+
+    // END TODO
+    $printed = ob_get_contents();
+
+    if(!isset($dblk)){
+        $dblk = null;
+    }
+
+
+    if(is_object($dblk)){
+        if($dblk instanceof PDO) {
+            $statement = $dblk->prepare("SELECT column_name, data_type,column_key, extra 
+                                                                          FROM information_schema.columns 
+                                                                          WHERE TABLE_NAME = 'crud'");
+            //then execute it
+
+            if ( ! $statement->execute())
+            {
+                ob_start();
+                print_r($statement->errorInfo());
+                $errorinfo = ob_get_clean();
+                throw new \Exception($errorinfo);
+            }
+
+            //fetch the data
+            $res=$statement->fetchAll(PDO::FETCH_ASSOC);
+            $errors = 0;
+            $solution = array(
+                array(
+                    "column_name" => 'id',
+                    "data_type" => 'int',
+                    "column_key" => 'PRI',
+                    "extra" => 'auto_increment',
+
+                ),
+                array(
+                    "column_name" => 'value',
+                    "data_type" => 'text',
+                    "column_key" => '',
+                    "extra" => '',
+
+                ),
+
+
+            );
+            if(count($res)!=2){
+                print("<br>Error there is no table called crud<br>");
+                $errors++;
+            }
+            if(($res[0]==$solution[0] && $res[1] == $solution[1])
+                || ($res[0]==$solution[1] && $res[1] == $solution[0])){
+                $statement = $dblk->prepare("SELECT id,value FROM crud");
+                //then execute it
+
+                if ( ! $statement->execute())
+                {
+                    ob_start();
+                    print_r($statement->errorInfo());
+                    $errorinfo = ob_get_clean();
+                    throw new \Exception($errorinfo);
+                }
+
+                //fetch the data
+                $res=$statement->fetchAll(PDO::FETCH_ASSOC);
+                ob_start();
+                print_r_tabs($res);
+                $expected = ob_get_clean();
+                if(count($res)<3){
+                    print("<br>Error, Please insert at least 3 rows<br>");
+                    $errors++;
+                }
+                if(stripos($printed,$expected)!== false){
+
+                }else{
+                    print("<br>Error, You have to print the content of the table with print_r_tabs<br>");
+                    $errors++;
+                }
+            }else{
+                print("<br>Error, your current definition is<br>");
+                print_r_tabs($res);
+                print("<br>But should be <br>");
+                print_r_tabs($solution);
+                $errors++;
+
+            }
+            $statement = $dblk->prepare("DROP TABLE IF EXISTS crud;");
+            //then execute it
+
+            if ( ! $statement->execute())
+            {
+                ob_start();
+                print_r($statement->errorInfo());
+                $errorinfo = ob_get_clean();
+                throw new \Exception($errorinfo);
+            }
+            if(count($errors)==0) {
+                return true;
+            }
+            return false;
+
+
+        }
+    }
+    print("<br>something went wrong<br>");
+
+
+
+
+    return false;
+};
+
+$exerciceSheet->addExercice(new Exercice("
+
+       <h4>INSERT Statement</h4>
     if you made it right, you should see no error messages
     ",$testFunction));
