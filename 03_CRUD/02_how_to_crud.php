@@ -161,6 +161,6 @@ $testFunction = function(){
 
 $exerciceSheet->addExercice(new Exercice("
 
-       <h4>INSERT Statement prepared</h4>
+       <h4>R Read</h4>
     if you made it right, you should see no error messages
     ",$testFunction));
