@@ -9,7 +9,7 @@
 
 require_once '../includes/include.php';
 
-$exerciceSheet = new ExerciceSheet("07", "Functions");
+$exerciceSheet = new ExerciceSheet("01", "DB Connection");
 
 /*
  BEGIN DESCRIPTION
@@ -352,7 +352,7 @@ $testFunction = function(){
                 $errorinfo = ob_get_clean();
                 throw new \Exception($errorinfo);
             }
-            if(count($errors)==0) {
+            if($errors==0) {
                 return true;
             }
             return false;
@@ -503,7 +503,7 @@ $testFunction = function(){
                 $errorinfo = ob_get_clean();
                 throw new \Exception($errorinfo);
             }
-            if(count($errors)==0) {
+            if($errors==0) {
                 return true;
             }
             return false;
@@ -697,7 +697,7 @@ $testFunction = function(){
                 $errorinfo = ob_get_clean();
                 throw new \Exception($errorinfo);
             }
-            if(count($errors)==0) {
+            if($errors==0) {
                 return true;
             }
             return false;
