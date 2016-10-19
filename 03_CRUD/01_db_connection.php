@@ -252,7 +252,6 @@ $testFunction = function(){
             $withPrintRTabs = ob_get_clean();
             unset($dblk);
             $dblk = null;
-            if(stripos($printed,$withPrintR) !== false && stripos($printed,$withPrintRTabs) !== false){
 
             if(stripos($printed,"Array") !== false && stripos($printed,"<p style='padding-left: 0em;'>") !== false){
                 return true;
@@ -318,7 +317,7 @@ $testFunction = function(){
      Create now the table crud
      The table will be dropped after the END TODO if it was created
     */
-    $connectionString = "mysql:host=localhost;dbname=information_schema";
+    $connectionString = "mysql:host=localhost;dbname=test";
     $dblk= new PDO($connectionString , getDBUsername(),getDBPassword());
     $statement = $dblk->prepare("CREATE TABLE crud(
         id int primary key auto_increment,
