@@ -460,8 +460,66 @@ $testFunction = function(){
      Create now the table crud and then insert 3 rows into it
     then print the content of the table with print_r_tabs
     */
+    $connectionString = "mysql:host=localhost;dbname=test";
+    $dblk= new PDO($connectionString , getDBUsername(),getDBPassword());
+    $statement = $dblk->prepare("CREATE TABLE crud(
+        id int primary key auto_increment,
+        value text
+    );");
 
+    if (!$statement->execute()){
+        // if error happens
+        ob_start();
+        //easiest way to serialize human readable error infos of ob_start and ob_get_clean and print_r
+        print_r($statement->errorInfo());
+        $errorinfo = ob_get_clean();
+        //throw exception
+        throw new \Exception($errorinfo);
+    }
 
+    $statement  = $dblk->prepare("INSERT INTO crud(value)VALUES('test')");
+    if (!$statement->execute()){
+        // if error happens
+        ob_start();
+        //easiest way to serialize human readable error infos of ob_start and ob_get_clean and print_r
+        print_r($statement->errorInfo());
+            $errorinfo = ob_get_clean();
+            //throw exception
+            throw new \Exception($errorinfo);
+       }
+    $statement  = $dblk->prepare("INSERT INTO crud(value)VALUES('test')");
+    if (!$statement->execute()){
+        // if error happens
+        ob_start();
+        //easiest way to serialize human readable error infos of ob_start and ob_get_clean and print_r
+        print_r($statement->errorInfo());
+        $errorinfo = ob_get_clean();
+        //throw exception
+        throw new \Exception($errorinfo);
+    }
+    $statement  = $dblk->prepare("INSERT INTO crud(value)VALUES('test')");
+    if (!$statement->execute()){
+        // if error happens
+        ob_start();
+        //easiest way to serialize human readable error infos of ob_start and ob_get_clean and print_r
+        print_r($statement->errorInfo());
+        $errorinfo = ob_get_clean();
+        //throw exception
+        throw new \Exception($errorinfo);
+    }
+
+    $statement = $dblk->prepare("SELECT id,value FROM crud");
+    if (!$statement->execute()){
+        // if error happens
+        ob_start();
+        //easiest way to serialize human readable error infos of ob_start and ob_get_clean and print_r
+        print_r($statement->errorInfo());
+        $errorinfo = ob_get_clean();
+        //throw exception
+        throw new \Exception($errorinfo);
+    }
+    $res = $statement->fetchAll(PDO::FETCH_ASSOC);
+    print_r_tabs($res);
 
     // END TODO
     $printed = ob_get_contents();
