@@ -130,6 +130,8 @@ END DESCRIPTION
          print("<br>");
          if(is_object($dblk)){
              if($dblk instanceof PDO) {
+                 unset($dblk);
+                 $dblk = null;
                  return true;
              }
          }
@@ -215,7 +217,8 @@ $testFunction = function(){
             ob_start();
             print_r_tabs($res);
             $withPrintRTabs = ob_get_clean();
-
+            unset($dblk);
+            $dblk = null;
             if(stripos($printed,$withPrintR) !== false && stripos($printed,$withPrintRTabs) !== false){
                 return true;
             }
@@ -352,6 +355,8 @@ $testFunction = function(){
                 $errorinfo = ob_get_clean();
                 throw new \Exception($errorinfo);
             }
+            unset($dblk);
+            $dblk = null;
             if($errors==0) {
                 return true;
             }
@@ -503,6 +508,8 @@ $testFunction = function(){
                 $errorinfo = ob_get_clean();
                 throw new \Exception($errorinfo);
             }
+            unset($dblk);
+            $dblk = null;
             if($errors==0) {
                 return true;
             }
@@ -697,6 +704,8 @@ $testFunction = function(){
                 $errorinfo = ob_get_clean();
                 throw new \Exception($errorinfo);
             }
+            unset($dblk);
+            $dblk = null;
             if($errors==0) {
                 return true;
             }
