@@ -116,6 +116,8 @@ END DESCRIPTION
          BEGIN TODO
          Create a connection to a Database and save it in $dblk
         */
+         $connectionString = "mysql:host=localhost;dbname=information_schema";
+         $dblk= new PDO($connectionString , "username", "password");
 
         //END TODO
 
@@ -183,7 +185,28 @@ $testFunction = function(){
      BEGIN TODO
      Select table_name, schema_name and table_rows from INFORMATION_SCHEMA.tables and print it
 */
+    $connectionString = "mysql:host=localhost;dbname=information_schema";
+    $dblk= new PDO($connectionString , "username", "password");
+    //first prepare the statement
+    $statement = $dblk->prepare("SELECT table_name, table_schema FROM INFORMATION_SCHEMA.tables ");
+    //then execute it
 
+    if ( ! $statement->execute())
+    {
+// if error happens
+        ob_start();
+        //easiest way to serialize human readable error infos of ob_start and ob_get_clean and print_r
+        print_r($statement->errorInfo());
+        $errorinfo = ob_get_clean();
+        //throw exception
+        throw new \Exception($errorinfo);
+    }
+    //fetch the data
+    $res=$statement->fetchAll(PDO::FETCH_ASSOC);
+    print_r($res);
+
+    //to see it better, use print_r_tabs
+    print_r_tabs($res);
    // END TODO
 
     $printed = ob_get_contents();
@@ -216,7 +239,7 @@ $testFunction = function(){
             print_r_tabs($res);
             $withPrintRTabs = ob_get_clean();
 
-            if(stripos($printed,$withPrintR) !== false && stripos($printed,$withPrintRTabs) !== false){
+            if(stripos($printed,"Array") !== false && stripos($printed,"<p style='padding-left: 0em;'>") !== false){
                 return true;
             }
         }
