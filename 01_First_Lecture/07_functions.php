@@ -10,34 +10,34 @@ $exerciceSheet = new ExerciceSheet("07", "Functions");
      * BEGIN DESCRIPTION
      * In programming, we often have to solve the same task more than one time.
      * Not like in a while loop repetitive, but on different places in the code, like replacing a text with another text in a string.
-     * 
+     *
      * you can define a function by typing
      * function myfunction(){
      * 	return 'myfunction';
      * }
-     * 
+     *
      * explanation:
      * function //we say, that we want to declare a function now
      * myfunction //the function name, you can choose it. choose a senseful name who describes, what the function does.
      * () //signature definition, we will learn that later
      * {} //between these braces the function code is defined.
      * return 'myfunction'; //when the function gets called, this value will be returned.
-     * 
+     *
      * So when i type:
      * $test = myfunction();
      * it does the following.
      * It goes into the funciton myfunction and executes the statements in there. There is one statement,
      * the return statement. After the return statement, the funciton is finished.
-     * Now, the compiler sees $test = 'myfunction'; (because the return value was "myfunction", he uses the return value now.) 
+     * Now, the compiler sees $test = 'myfunction'; (because the return value was "myfunction", he uses the return value now.)
      * then , it assigns the string 'myfunction' to the variable $test.
-     * 
+     *
      * END DESCRIPTION
      */
-     
-     
+
+
      /*BEGIN TODO
       * create a function br(), which returns the HTML break tag (if you don't know, look it up in the internet)
-      * 
+      *
       */
 
 
@@ -61,13 +61,13 @@ $exerciceSheet = new ExerciceSheet("07", "Functions");
 
 
 	 $testFunction = function(){
-		
+
 
 
 		if(!function_exists("br")){
 			function br(){}
-		}	
-        
+		}
+
 		print("<br>the output of your function is the following:<br>
 		<textarea>".br()."</textarea>
 		<br>");
@@ -75,39 +75,42 @@ $exerciceSheet = new ExerciceSheet("07", "Functions");
 			return true;
 		}else{
 			print("<br>something went wrong<br>");
-			
+
 		}
-		
+
 
         return false;
     };
 
     $exerciceSheet->addExercice(new Exercice("
-    
+
        <h4>Br Function</h4>
     if you made it right, you should see no error messages
     ",$testFunction));
-     
-     
-     
-     
+
+
+
+
 //-----------------------------------------------------------------------------------------------------------------------------------
     /*
      * BEGIN DESCRIPTION
      * in a function, you define the signature between ( and ) after the functionname.
      * The signature tells you, which parameter you must pass to the function.
-     * as example, the build in 
+     * as example, the build in
      *  function strtolower has the following signature: ($string).
-     * 
+     *
      * So, you have always to pass one parameter.
-     * 
+       The function is called like this:
+       $var = strtolower('string');
+
+     *
      * END DESCRIPTION
      */
-     
-     
+
+
      /*BEGIN TODO
       * create a function toggle($boolean), which returns false if $boolean was true and true if $boolean was false.
-      * 
+      *
       */
 
 
@@ -131,13 +134,13 @@ $exerciceSheet = new ExerciceSheet("07", "Functions");
 
 
 	 $testFunction = function(){
-		
+
 
 
 		if(!function_exists("toggle")){
 			function toggle($boolean){}
-		}	
-        
+		}
+
 		print("<br>the output of your function called with true is the following:<br>
 		<textarea>".toggle(true)."</textarea>
 		<br>");
@@ -145,41 +148,41 @@ $exerciceSheet = new ExerciceSheet("07", "Functions");
 			return true;
 		}else{
 			print("<br>something went wrong<br>");
-			
+
 		}
-		
+
 
         return false;
     };
 
     $exerciceSheet->addExercice(new Exercice("
-    
+
        <h4>Toggle Function</h4>
     if you made it right, you should see no error messages
     ",$testFunction));
-    
-    
-    
-    
-    
-     
+
+
+
+
+
+
 //-----------------------------------------------------------------------------------------------------------------------------------
     /*
      * BEGIN DESCRIPTION
      * You can call a function by typing the functionname, then (, then pass your parameters, close the brace), like this:
      * $array = array_push($array, 1);
-     * 
+     *
      * END DESCRIPTION
      */
-     
-     
-     
+
+
+
 
 	 $testFunction = function(){
-		 
+
 		 $toReplaceText = 'I like learning with Microsoft Friends';
 		 $squareRootOf = 81;
-		 
+
 		 /*BEGIN TODO
       * look up the functions to solve the following tasks
       * 1. Replace Microsoft with Linux in the String $toReplaceText.
@@ -187,11 +190,11 @@ $exerciceSheet = new ExerciceSheet("07", "Functions");
       * 3. calculate the square root of 81 and save it in $squareRoot
       * 4. save $toReplaceText in the variable $uppercaseText. Then convert $uppercaseText to uppercase.
       */
-		
-		
+
+
 
 		//END TODO
-		
+
 		if(!isset($countWords)){
 			$countWords = 0;
 		}
@@ -201,11 +204,11 @@ $exerciceSheet = new ExerciceSheet("07", "Functions");
 		if(!isset($uppercaseText)){
 			$uppercaseText = '';
 		}
-		
 
 
-		
-        
+
+
+
 		print("<ol>
 		<li>Your Variable \$toReplaceText is '$toReplaceText'</li>
 		<li>Your Variable \$countWords is '$countWords'</li>
@@ -221,57 +224,57 @@ $exerciceSheet = new ExerciceSheet("07", "Functions");
 			return true;
 		}else{
 			print("<br>something went wrong<br>");
-			
+
 		}
-		
+
 
         return false;
-        
+
     };
 
     $exerciceSheet->addExercice(new Exercice("
-    
+
        <h4>Function Calling</h4>
     ",$testFunction));
-    
-    
+
+
     //-----------------------------------------------------------------------------------------------------------------------------------
     /*
      * BEGIN DESCRIPTION
      * now we exercice a little
-     * 
+     *
      * END DESCRIPTION
      */
-     
-     
-     
+
+
+
 
 	 $testFunction = function(){
-		 
-		 
+
+
 		 /*BEGIN TODO
 			implement a function str_reverse($text), which returns the string passed in reverse order
 		*/
-		
-		
-		
+
+
+
 
 		//END TODO
-		
+
 		if(!function_exists("str_reverse")){
 			function str_reverse($text){
-				
+
 			}
 		}
-		
 
 
-		
+
+
 		 $toReverseTexts[] = 'I like learning with Linux Friends';
 		 $toReverseTexts[] = 'Programming is best';
-        
+
 		print("
-				
+
 				<table>
 					<tr>
 						<th>Text</th>
@@ -281,18 +284,18 @@ $exerciceSheet = new ExerciceSheet("07", "Functions");
 					<tr>
 						<td>".$toReverseTexts[0]."</td>
 						<td>".str_reverse($toReverseTexts[0])."</td>
-						<td>sdneirF xuniL htiw gninrael ekil I</td>		
+						<td>sdneirF xuniL htiw gninrael ekil I</td>
 					</tr>
 					<tr>
 						<td>".$toReverseTexts[1]."</td>
 						<td>".str_reverse($toReverseTexts[1])."</td>
-						<td>tseb si gnimmargorP</td>		
+						<td>tseb si gnimmargorP</td>
 					</tr>
 				</table>
 		");
-		
-		
-		
+
+
+
 		if(
 			'sdneirF xuniL htiw gninrael ekil I' == str_reverse($toReverseTexts[0])
 			&& 'tseb si gnimmargorP' == str_reverse($toReverseTexts[1])
@@ -300,59 +303,59 @@ $exerciceSheet = new ExerciceSheet("07", "Functions");
 			return true;
 		}else{
 			print("<br>something went wrong<br>");
-			
+
 		}
-		
+
 
         return false;
-        
+
     };
 
     $exerciceSheet->addExercice(new Exercice("
-    
+
        <h4>Str Reverse</h4>
     ",$testFunction));
-    
-    
-    
-    
+
+
+
+
      //-----------------------------------------------------------------------------------------------------------------------------------
     /*
      * BEGIN DESCRIPTION
      * now we exercice a little
-     * 
+     *
      * END DESCRIPTION
      */
-     
-     
-     
+
+
+
 
 	 $testFunction = function(){
-		 
-		 
+
+
 		 /*BEGIN TODO
 			implement a function arraySort($array), which returns the $array, but sorted
 		*/
-		
-		
-		
+
+
+
 
 		//END TODO
-		
+
 		if(!function_exists("arraySort")){
 			function arraySort($array){
 				return array();
 			}
 		}
-		
 
 
-		
+
+
 		 $toSort[] = array(4,3,2,1);
 		 $toSort[] = array(3,6,87,4,3,9,324,6543,43,45,67,344);
-        
+
 		print("
-				
+
 				<table>
 					<tr>
 						<th>Text</th>
@@ -362,18 +365,18 @@ $exerciceSheet = new ExerciceSheet("07", "Functions");
 					<tr>
 						<td>".json_encode($toSort[0])."</td>
 						<td>".json_encode(arraySort($toSort[0]))."</td>
-						<td>[1,2,3,4]</td>		
+						<td>[1,2,3,4]</td>
 					</tr>
 					<tr>
 						<td>".json_encode($toSort[1])."</td>
 						<td>".json_encode(arraySort($toSort[1]))."</td>
-						<td>[3,3,4,6,9,43,45,67,87,324,344]</td>		
+						<td>[3,3,4,6,9,43,45,67,87,324,344]</td>
 					</tr>
 				</table>
 		");
-		
-		
-		
+
+
+
 		if(
 			'[1,2,3,4]' == json_encode(arraySort($toSort[0]))
 			&& '[3,3,4,6,9,43,45,67,87,324,344]' == json_encode(arraySort($toSort[1]))
@@ -381,23 +384,23 @@ $exerciceSheet = new ExerciceSheet("07", "Functions");
 			return true;
 		}else{
 			print("<br>something went wrong<br>");
-			
+
 		}
-		
+
 
         return false;
-        
+
     };
 
     $exerciceSheet->addExercice(new Exercice("
-    
+
        <h4>Str Reverse</h4>
     ",$testFunction));
-    
-    
-    
-    
-     
-     
+
+
+
+
+
+
 
 ?>
