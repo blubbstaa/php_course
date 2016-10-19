@@ -11,6 +11,16 @@ require_once '../includes/include.php';
 
 $exerciceSheet = new ExerciceSheet("01", "DB Connection");
 
+
+function getDBUsername(){
+    return 'root';
+}
+
+
+function getDBPassword(){
+    return 'root';
+}
+
 /*
  BEGIN DESCRIPTION
  As you know, after your PHP script is finished, all your variables get deleted.
@@ -117,7 +127,7 @@ END DESCRIPTION
          Create a connection to a Database and save it in $dblk
         */
          $connectionString = "mysql:host=localhost;dbname=information_schema";
-         $dblk= new PDO($connectionString , "username", "password");
+         $dblk= new PDO($connectionString , getDBUsername(), getDBPassword());
 
         //END TODO
 
@@ -186,7 +196,7 @@ $testFunction = function(){
      Select table_name, schema_name and table_rows from INFORMATION_SCHEMA.tables and print it
 */
     $connectionString = "mysql:host=localhost;dbname=information_schema";
-    $dblk= new PDO($connectionString , "username", "password");
+    $dblk= new PDO($connectionString , getDBUsername(), getDBPassword());
     //first prepare the statement
     $statement = $dblk->prepare("SELECT table_name, table_schema FROM INFORMATION_SCHEMA.tables ");
     //then execute it
@@ -303,6 +313,22 @@ $testFunction = function(){
      Create now the table crud
      The table will be dropped after the END TODO if it was created
     */
+    $connectionString = "mysql:host=localhost;dbname=information_schema";
+    $dblk= new PDO($connectionString , getDBUsername(),getDBPassword());
+    $statement = $dblk->prepare("CREATE TABLE crud(
+        id int primary key auto_increment,
+        value text
+    );");
+
+    if (!$statement->execute()){
+        // if error happens
+        ob_start();
+        //easiest way to serialize human readable error infos of ob_start and ob_get_clean and print_r
+        print_r($statement->errorInfo());
+            $errorinfo = ob_get_clean();
+            //throw exception
+            throw new \Exception($errorinfo);
+       }
 
 
 
