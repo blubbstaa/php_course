@@ -26,7 +26,7 @@ $testFunction = function(){
     /*BEGIN TODO
     create a variable $variable1 and assign the string 'yet another string' to it
 */
-
+$variable1='yet another string';
     //END TODO
 
 
@@ -74,6 +74,9 @@ $testFunction = function(){
     create a variable $variable1 and assign the string 'yet another string' concatenated with ' this string is appended'
     to it
     */
+	
+	$variable1='yet another string'.' this string is appended';
+	
 
     //END TODO
 
@@ -124,7 +127,7 @@ $testFunction = function(){
     /*BEGIN TODO
     create a variable $variable1 and assign the third letter of the string 'This is a string' to it
     */
-
+$variable1='This is a string'[2];
     //END TODO
 
 
