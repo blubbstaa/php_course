@@ -33,8 +33,12 @@ $exerciceSheet = new ExerciceSheet("06", "Loops");
 			Devide $startnumber as long by 3 as it is possible 
 			print the number in every loop (to print a variable, use print($startnumber."<br>");)
 		*/
-
-
+$startnumber = 6804;
+while ( $startnumber % 3 == 0 ) {
+		$startnumber /= 3;
+		print ($startnumber . "<br>") ;
+	}
+	
         //END TODO
 
 
@@ -101,7 +105,12 @@ $exerciceSheet = new ExerciceSheet("06", "Loops");
 			then print $stringWithB;
 		*/
 
-
+$stringWithB = 'b';
+	
+	while ( strlen($stringWithB)<100 ) {
+		$stringWithB = $stringWithB . 'b';
+		print ($stringWithB . "<br>");
+	}
         //END TODO
 
 
@@ -154,7 +163,7 @@ $exerciceSheet = new ExerciceSheet("06", "Loops");
      * as an example, you want to print every name of the students in an array of students:
      * 
      * $studentsArray = array('Michael', 'Max', 'Tom', 'Cherry', 'Sarah');
-     * foreach($students as $studentnum => $student){
+     * foreach($studentsArray as $studentnum => $student){
      * 		print($studentnum." : ".$student."<br>");
      * }
      * 
@@ -187,8 +196,10 @@ $exerciceSheet = new ExerciceSheet("06", "Loops");
 			Michael,Max,Tom...
 			print the variable at the end
 		*/
+foreach ($studentsArray as $studentnum => $studentvalue){
+	print($studentvalue);
+}
 		
-
         //END TODO
 
 

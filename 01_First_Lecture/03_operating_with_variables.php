@@ -31,7 +31,7 @@ $testFunction = function(){
     /*BEGIN TODO
     create a variable $variable1 and assign the sum of $summand1 and $summand2 to it
 */
-
+$variable1=$summand1+$summand2;
 
     //END TODO
 

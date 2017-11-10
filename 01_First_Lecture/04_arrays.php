@@ -24,7 +24,8 @@ $exerciceSheet = new ExerciceSheet("04", "Arrays");
         create a variable $emptyArray and assign an empty array to it.
         then create another variable $fullArray and assign the value 1 to the first element.
     */
-
+$emptyArray=array();
+$fullArray=array(1);
         //END TODO
 
 
@@ -92,6 +93,8 @@ $exerciceSheet = new ExerciceSheet("04", "Arrays");
         create a variable $array and assign the value 1 to the key 'firstkey', and 2 two the key 'secondkey'
     */
 
+$array['firstkey']=1;
+$array['secondkey']=2;
 
         //END TODO
 
@@ -141,8 +144,9 @@ $exerciceSheet = new ExerciceSheet("04", "Arrays");
 			first create an array named $array and assign the value 'text' to the key 5
 			then append two times the element 'text' with the push operator to the array
 		*/
-
-
+$array[5]='text';
+$array[]='text';
+$array[]='text';
         //END TODO
 
 
@@ -313,7 +317,14 @@ $exerciceSheet = new ExerciceSheet("04", "Arrays");
 			But with direct assignment
 		*/
 
-
+$arraydirectassigned=array(
+						array(
+								'00'
+								,'7'
+								'02'=> array(
+									
+								)
+									
         //END TODO
 
 

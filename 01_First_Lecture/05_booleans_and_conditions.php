@@ -21,7 +21,7 @@ $exerciceSheet = new ExerciceSheet("05", "Booleans and conditions");
         /*BEGIN TODO
         create a variable $bool and assign the value false to it.
     */
-
+$bool=false;
 
         //END TODO
 
