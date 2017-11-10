@@ -180,7 +180,8 @@ END DESCRIPTION
         create a variable $variable1 and assign the value 1 to it.
         then create another variable $variable2 and assign the value 2 to it
     */
-
+$variable1=1;
+$variable2=2;
 
         //END TODO
 
@@ -222,12 +223,13 @@ lets begin with the addition.
 To sum 1 and 2, you can just write 1+2
  * END DESCRIPTION
  */
-
+    
 
 $testFunction = function(){
     /*BEGIN TODO
     create a variable $variable1 and assign the sum of 12345 and 54758 to it
 */
+$variable1=12345+54758;
 
 
     //END TODO
@@ -273,7 +275,7 @@ $testFunction = function(){
 
 
     //END TODO
-
+$variable1=54758-12345;
 
     if(!isset($variable1)){
         $variable1 = null;
@@ -412,6 +414,7 @@ $testFunction = function(){
     /*BEGIN TODO
     create a variable $variable1 and assign the value of  13246 modulo by 83 to it
 */
+$variable1=13246%83;
 
     //END TODO
 
